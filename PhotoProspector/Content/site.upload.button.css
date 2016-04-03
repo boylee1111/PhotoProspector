@@ -1,0 +1,97 @@
+﻿.js .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+
+.inputfile-circle + label {
+    color: #d3394c;
+    transition: color .2s ease-in-out, transform .2s ease-in-out;
+    -webkit-transition: color .2s ease-in-out, transform .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out, transform .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out, transform .2s ease-in-out;
+    -o-transition: color .2s ease-in-out, transform .2s ease-in-out;
+    outline: 0;
+}
+
+    .inputfile-circle:focus + label,
+    .inputfile-circle.has-focus + label,
+    .inputfile-circle + label:hover {
+        color: #0d8aa5;
+        transform: scale(1.3);
+        outline: 0;
+    }
+
+.inputfile-circle.hidden + label {
+    transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+    -webkit-transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+    -moz-transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+    -ms-transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+    -o-transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+    -moz-opacity: 0;
+    opacity: 0;
+    -moz-transform: scale(30);
+    -webkit-transform: scale(30);
+    -o-transform: scale(30);
+    -ms-transform: scale(30);
+    transform: scale(30);
+}
+
+.inputfile-circle + label figure {
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50%;
+    background-color: #19bee1;
+    display: block;
+    padding: 35px;
+    margin: 0px auto 0px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+}
+
+.inputfile-circle:focus + label figure,
+.inputfile-circle.has-focus + label figure,
+.inputfile-circle + label:hover figure {
+    background-color: #0d8aa5;
+}
+
+.inputfile-circle + label svg {
+    width: 100%;
+    height: 100%;
+    fill: #f1e5e6;
+}

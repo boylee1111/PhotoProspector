@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/css")
+
+</head>
+<body>
+    <div class="corner-ribbon top-right sticky blue">
+        <a href="#">About Us </a>
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div id="ms-logo-section">
+            <a href="//www.microsoft.com" target="_blank" title="Microsoft">
+                <img id="ms-logo-img" src="~/Content/Images/ms-logo.jpg" />
+            </a>
+        </div>
+        <div class="navbar-header">
+            <div class="navbar-headline">
+                @Html.ActionLink("Photo Prospector", "Index", "Upload", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="headline-separator"></div>
+            <div class="navbar-subheadline">
+                <p>we know who this guy is in photo.</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Powered by <strong>ASG Group</strong>.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

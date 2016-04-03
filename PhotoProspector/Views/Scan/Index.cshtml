@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@Scripts.Render("~/bundles/scan")
+@Styles.Render("~/Content/scan")
+
+<div id="uploaded_preview">
+    <div>
+        <h3>Preview</h3>
+    </div>
+    <div>
+        <img id="preview-img" src="@ViewBag.fileName" />
+    </div>
+</div>
+<div id="uploaded_options">
+    <svg class="hidden">
+        <defs>
+            <clipPath id="clipBox" clipPathUnits="objectBoundingBox">
+                <polygon points="0,0 0,1 0.35,1 0.35,0.6 0.65,0.6 0.65,1 1,1 1,0" />
+            </clipPath>
+        </defs>
+    </svg>
+    <div class="box bg-1">
+        <button class="custom-button custom-button--itzel custom-button--text-thick"><i class="custom-button__icon icon icon-printer"></i><span>Start Scaning</span></button>
+        <button class="custom-button custom-button--itzel custom-button--text-thick"><i class="custom-button__icon icon icon-upload"></i><span>Upload Another</span></button>
+    </div>
+</div>

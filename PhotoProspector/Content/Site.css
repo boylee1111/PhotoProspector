@@ -1,0 +1,98 @@
+﻿body {
+    padding-top: 150px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+a label form input img {
+    outline: 0;
+}
+
+a:focus {
+    outline: 0;
+}
+
+.corner-ribbon a {
+    color: white;
+    font-size: 18px;
+}
+
+.navbar {
+    height: 150px;
+    background: #fff;
+    z-index: 100;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    border-color: #fff;
+}
+
+    .navbar .navbar-header {
+        display: inline-block;
+        position: relative;
+        text-align: center !important;
+        width: 100%;
+    }
+
+        .navbar .navbar-header .navbar-headline .navbar-brand {
+            width: 100%;
+            display: block;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 52px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            font-weight: normal;
+            color: #222;
+            padding-top: 40px;
+        }
+
+        .navbar .navbar-header .navbar-subheadline {
+            display: block;
+            font-family: "Lucida Grande", Tahoma;
+            font-size: 11px;
+            font-weight: lighter;
+            font-variant: normal;
+            text-transform: uppercase;
+            color: #666666;
+            margin-top: 10px;
+            letter-spacing: 0.3em;
+        }
+
+#ms-logo-section {
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    z-index: 100;
+    outline: 0;
+}
+
+#ms-logo-img {
+    margin: 15px 150px;
+    height: 120px;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+}
+
+    footer p {
+        font-size: 14px;
+    }

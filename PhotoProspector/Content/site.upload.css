@@ -1,0 +1,95 @@
+﻿#uploading-container {
+    background-color: #19bee1;
+}
+
+#photo-upload-box {
+    text-align: center;
+}
+
+#photo-upload-form {
+    padding-top: 50px;
+}
+
+#logo-section {
+    left: 0px;
+    right: 0px;
+    height: 900px;
+    max-height: 100%;
+    max-width: 100%;
+    background-image: url("Images/home.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+#logo-section-cover {
+    left: 0px;
+    right: 0px;
+    height: 900px;
+    max-height: 100%;
+    max-width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+#cover-description {
+    text-align: center !important;
+    width: 100%;
+    font-family: 'Segoe UI Local', 'Segoe WP', 'Segoe UI Web', Tahoma, 'Helvetica Neue', Helvetica, 'Meiryo UI', Meiryo, 'Arial Unicode MS', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 200;
+    color: #fff;
+    padding-top: 180px;
+}
+
+#uploading-section {
+    left: 0px;
+    right: 0px;
+    height: 900px;
+    max-height: 100%;
+    max-width: 100%;
+    margin-top: 60px;
+    background-color: #19bee1;
+    background-position: 50% 50%;
+    display: none;
+}
+
+#upload-circular {
+    display: none;
+}
+
+#upload-control {
+    display: none;
+}
+
+#preview-pane {
+    position: absolute;
+    right: -160px;
+    z-index: 1;
+    display: block;
+    border: 1px #000 solid;
+}
+
+    #preview-pane .preview-container {
+        overflow: hidden;
+        /*width: 100px;*/ /* ToDo - size of the crop window*/
+        /*height: 100px; /* ToDo - size of the crop window*/
+    }
+
+.upload-progress {
+    border: 1px #bbb solid;
+    padding: 0;
+}
+
+.upload-percent-value {
+    padding-left: 10px;
+    position: absolute;
+}
+
+.upload-percent-bar {
+    background-color: #bbb;
+    height: 20px;
+}
