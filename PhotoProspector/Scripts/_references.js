@@ -11,5 +11,6 @@
 /// <reference path="respond.matchmedia.addlistener.min.js" />
 /// <reference path="respond.min.js" />
 /// <reference path="site.scan.js" />
+/// <reference path="site.scan.result.js" />
 /// <reference path="site.upload.button.js" />
 /// <reference path="site.upload.js" />

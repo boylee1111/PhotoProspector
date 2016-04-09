@@ -1,0 +1,10 @@
+﻿#scan_result_preview {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#scan_result_img {
+    max-width: 800px;
+    max-height: 600px;
+}

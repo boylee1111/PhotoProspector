@@ -1,0 +1,48 @@
+﻿@model PhotoProspector.ViewModels.PersonListViewModel
+
+@Styles.Render("~/Content/scanresult")
+@Scripts.Render("~/bundles/scanresult")
+
+<div id="scan_result_preview">
+    <div>
+        <h3>Scan Result</h3>
+    </div>
+    <div id="preview_img_container">
+        <img id="scan_result_img" src="@Model.ImageURL" />
+    </div>
+</div>
+<div id="person_info_container">
+    @{
+        var firstPerson = Model.Persons.FirstOrDefault();
+        if (firstPerson != null)
+        {
+            <table id="person_info_table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(p => firstPerson.alias)</th>
+                        <th>@Html.DisplayNameFor(p => firstPerson.photoPath)</th>
+                        <th>@Html.DisplayNameFor(p => firstPerson.displayname)</th>
+                        <th>@Html.DisplayNameFor(p => firstPerson.title)</th>
+                        <th>@Html.DisplayNameFor(p => firstPerson.specialty)</th>
+                        <th>@Html.DisplayNameFor(p => firstPerson.team)</th>
+                        <th>@Html.DisplayNameFor(p => firstPerson.favoritesport)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var person in Model.Persons)
+                    {
+                        <tr>
+                            <td class="lalign">@Html.DisplayFor(p => person.alias)</td>
+                            <td class="td_photo"><img class="avatar" src="@person.photoPath" /></td>
+                            <td class="no_wrap">@Html.DisplayFor(p => person.displayname)</td>
+                            <td>@Html.DisplayFor(p => person.title)</td>
+                            <td>@Html.DisplayFor(p => person.specialty)</td>
+                            <td>@Html.DisplayFor(p => person.team)</td>
+                            <td>@Html.DisplayFor(p => person.favoritesport)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
+</div>

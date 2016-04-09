@@ -34,7 +34,7 @@ $(function () {
                         // set delay for uploading, we can see the animation
                         setTimeout(function () {
                             $('#photo-upload-form').submit();
-                        }, 5000);
+                        }, 2000);
                     } else {
                         // File too large
                         $('#photo-upload-form .upload-file-notice').addClass('bg-danger');

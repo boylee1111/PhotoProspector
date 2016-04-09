@@ -31,6 +31,9 @@ namespace PhotoProspector
             bundles.Add(new ScriptBundle("~/bundles/jqueryredirect").Include(
                 "~/Scripts/jquery.redirect.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/loadgo").Include(
+                "~/Scripts/LoadGo/loadgo.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/upload").Include(
                 "~/Scripts/site.upload.js",
                 "~/Scripts/site.upload.button.js"));
@@ -40,6 +43,9 @@ namespace PhotoProspector
 
             bundles.Add(new ScriptBundle("~/bundles/scan").Include(
                 "~/Scripts/site.scan.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/scanresult").Include(
+                "~/Scripts/site.scan.result.js"));
         }
 
         public static void RegisterStyleBundles(BundleCollection bundles)
@@ -60,6 +66,10 @@ namespace PhotoProspector
             bundles.Add(new StyleBundle("~/Content/scan").Include(
                 "~/Content/site.scan.css",
                 "~/Content/site.scan.button.css"));
+
+            bundles.Add(new StyleBundle("~/Content/scanresult").Include(
+                "~/Content/site.scan.result.css",
+                "~/Content/site.scan.result.table.css"));
         }
     }
 }

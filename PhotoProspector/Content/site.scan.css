@@ -12,9 +12,22 @@
     text-align: center;
 }
 
-#preview-img {
+#preview_img {
     max-width: 800px;
     max-height: 600px;
+}
+
+#scan_progress {
+    /*display: none;*/
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+#buttons_container {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* Box colors */
@@ -26,7 +39,7 @@
 h3 {
     color: #37474f;
     font-family: "open sans","PingFang SC","Microsoft YaHei",sans-serif;
-     font-size: 45px;
+    font-size: 45px;
     font-weight: normal;
     line-height: 48px;
     margin: 30px 0;
