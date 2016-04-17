@@ -2,6 +2,7 @@
 
 var scanContainer,
     previewImg,
+    uploadedOptionContainer,
     buttonsContainer,
     scanProgress,
     scanButton,
@@ -10,16 +11,23 @@ var scanContainer,
 $(function () {
     scanContainer = $('#scan_container');
     previewImg = $('#preview_img');
+    uploadedOptionContainer = $('#uploaded_options');
     buttonsContainer = $('#buttons_container');
     scanProgress = $('#scan_progress');
     scanButton = $('#scan_button');
     resetButton = $('#upload_button');
 
     eventBinding();
+    initScanPreviewWindowResize();
 
     $('body').css('display', 'none');
     $('body').fadeIn();
 });
+
+function initScanPreviewWindowResize() {
+    var resizedImgHeight = maximumContentHeight - uploadedOptionContainer.height() - 60; // 60 is the img padding-top(40) plus padding-bottom(20px)
+    previewImg.css('max-height', resizedImgHeight);
+}
 
 function eventBinding() {
     scanButton.click(function (e) {
@@ -68,7 +76,7 @@ function eventBinding() {
 
     resetButton.click(function (e) {
         e.preventDefault();
-        document.location.host;
+        window.location.href = document.location.origin;
     });
 }
 

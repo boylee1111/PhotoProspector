@@ -209,6 +209,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -234,6 +235,11 @@
     <Content Include="Content\Fonts\vicons\vicons.svg" />
     <Content Include="Content\Images\home.jpg" />
     <Content Include="Content\Images\ms-logo.jpg" />
+    <Content Include="Content\Images\test.jpg" />
+    <Content Include="Content\Images\test_img_1.png" />
+    <Content Include="Content\Images\test_img_2.png" />
+    <Content Include="Content\Images\test_img_3.png" />
+    <Content Include="Content\site.about.css" />
     <Content Include="Content\site.scan.button.css" />
     <Content Include="Content\site.scan.css" />
     <Content Include="Content\site.scan.result.css" />
@@ -278,6 +284,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\site.scan.js" />
     <Content Include="Scripts\site.scan.result.js" />
     <Content Include="Scripts\site.upload.js" />
@@ -320,6 +327,7 @@
     <Content Include="Scripts\site.upload.button.js" />
     <Content Include="Views\Scan\Index.cshtml" />
     <Content Include="Views\Scan\Scan.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,20 +338,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PhotoProspector.Data\PhotoProspector.Data.csproj">
-      <Project>{981974ac-09ba-4bce-b611-fb26f1ce3ce1}</Project>
-      <Name>PhotoProspector.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PhotoProspector.Domain\PhotoProspector.Domain.csproj">
-      <Project>{6b68ecaf-e529-4b04-a93d-8ed98ffa6041}</Project>
-      <Name>PhotoProspector.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PhotoProspector.Service\PhotoProspector.Service.csproj">
-      <Project>{8a186e7d-eb42-4de5-bd47-4fcff77a8c22}</Project>
-      <Name>PhotoProspector.Service</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

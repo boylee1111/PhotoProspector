@@ -1,0 +1,125 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+    background-color: rgb(237, 237, 237);
+}
+
+h3 {
+    color: #37474f;
+    font-family: "open sans","PingFang SC","Microsoft YaHei",sans-serif;
+    font-size: 45px;
+    font-weight: normal;
+    line-height: 48px;
+    text-align: center;
+    margin-bottom: -40px;
+}
+
+#pricing {
+    width: 709px;
+    margin: 100px auto;
+    font-family: 'Open Sans', Helvetica;
+}
+
+.price_card {
+    width: 300px;
+    background: rgb(255, 255, 255);
+    display: inline-table;
+    top: 0;
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+    .price_card:not(:last-child) {
+        margin-right: 100px;
+    }
+
+.header {
+    color: rgb(255, 255, 255);
+    padding-top: 30px;
+}
+
+.dodger .header {
+    background: rgb(30, 154, 2255);
+}
+
+.price_card span {
+    text-align: center;
+}
+
+.price_card img.avatar {
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin: auto;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px 0px rgba(255, 255, 255, 0.5);
+    transition: transform .2s ease-in-out;
+    -webkit-transition: transform .2s ease-in-out;
+    -moz-transition: transform .2s ease-in-out;
+    -ms-transition: transform .2s ease-in-out;
+    -o-transition: transform .2s ease-in-out;
+}
+
+/*.price_card img.avatar:hover {
+        transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+    }*/
+
+.name {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    padding: 20px 0 20px;
+}
+
+.features {
+    list-style: none;
+    text-align: center;
+    color: rgb(138, 138, 138);
+    margin: 0;
+    padding: 0;
+}
+
+    .features li {
+        margin: 0 35px;
+        padding: 20px 15px;
+        width: 230px;
+    }
+
+        .features li:not(:last-child) {
+            border: 1px solid rgb(242, 242, 242);
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+
+button {
+    color: rgb(255, 255, 255);
+    border: 0;
+    border-radius: 5px;
+    height: 40px;
+    width: 200px;
+    display: block;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 20px auto 35px;
+}
+
+.dodger .button {
+    background: rgb(30, 144, 255);
+}
+
+.tip {
+    font-family: 'Indie Flower';
+    position: absolute;
+    color: rgb(117, 117, 117);
+    margin: 10px 5px;
+}

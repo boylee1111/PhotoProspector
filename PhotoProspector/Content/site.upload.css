@@ -1,5 +1,6 @@
 ﻿#uploading-container {
     background-color: #19bee1;
+    height: 750px;
 }
 
 #photo-upload-box {
@@ -13,7 +14,7 @@
 #logo-section {
     left: 0px;
     right: 0px;
-    height: 900px;
+    height: 750px;
     max-height: 100%;
     max-width: 100%;
     background-image: url("Images/home.jpg");
@@ -25,7 +26,7 @@
 #logo-section-cover {
     left: 0px;
     right: 0px;
-    height: 900px;
+    height: 750px;
     max-height: 100%;
     max-width: 100%;
     background-color: rgba(0,0,0,0.4);
@@ -42,13 +43,13 @@
     text-align: center;
     font-weight: 200;
     color: #fff;
-    padding-top: 180px;
+    padding-top: 100px;
 }
 
 #uploading-section {
     left: 0px;
     right: 0px;
-    height: 900px;
+    height: 750px;
     max-height: 100%;
     max-width: 100%;
     margin-top: 60px;

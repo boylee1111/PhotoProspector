@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/about");
+
+<h3>About Us</h3>
+
+<div id="pricing">
+    <div class="price_card dodger">
+        <div class="header">
+            @*<span class="price">EY</span>*@
+            <img class="avatar" src="~/Content/Images/test_img_1.png" />
+            <span class="name">Eric Yi</span>
+        </div>
+        <ul class="features">
+            <li>Support Escalation Engineer, APGC Exchange Team, ASG</li>
+            <li>Balabala Engineer</li>
+        </ul>
+        <span class="tip">* Married (Testing)</span>
+    </div>
+    <div class="price_card dodger">
+        <div class="header">
+            @*<span class="price">BL</span>*@
+            <img class="avatar" src="~/Content/Images/test_img_2.png" />
+            <span class="name">Boyi Li</span>
+        </div>
+        <ul class="features">
+            <li>Support Engineer, APGC Exchange Team, ASG</li>
+            <li>Frontend Engineer</li>
+            <li>Anything More</li>
+        </ul>
+        <span class="tip">* Single (Testing)</span>
+    </div>
+</div>

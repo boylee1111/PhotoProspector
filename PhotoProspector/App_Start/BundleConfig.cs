@@ -34,6 +34,9 @@ namespace PhotoProspector
             bundles.Add(new ScriptBundle("~/bundles/loadgo").Include(
                 "~/Scripts/LoadGo/loadgo.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/site").Include(
+                "~/Scripts/site.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/upload").Include(
                 "~/Scripts/site.upload.js",
                 "~/Scripts/site.upload.button.js"));
@@ -70,6 +73,9 @@ namespace PhotoProspector
             bundles.Add(new StyleBundle("~/Content/scanresult").Include(
                 "~/Content/site.scan.result.css",
                 "~/Content/site.scan.result.table.css"));
+
+            bundles.Add(new StyleBundle("~/Content/about").Include(
+                "~/Content/site.about.css"));
         }
     }
 }

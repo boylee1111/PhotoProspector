@@ -6,14 +6,15 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/site")
     @Styles.Render("~/Content/css")
 
 </head>
 <body>
     <div class="corner-ribbon top-right sticky blue">
-        <a href="#">About Us </a>
+        @Html.ActionLink("About Us", "Index", "About")
     </div>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div id="global_nav_bar" class="navbar navbar-inverse navbar-fixed-top">
         <div id="ms-logo-section">
             <a href="//www.microsoft.com" target="_blank" title="Microsoft">
                 <img id="ms-logo-img" src="~/Content/Images/ms-logo.jpg" />
@@ -31,8 +32,8 @@
     </div>
     <div>
         @RenderBody()
-        <hr />
-        <footer>
+        <footer id="global_footer">
+            <hr />
             <p>&copy; @DateTime.Now.Year - Powered by <strong>ASG Group</strong>.</p>
         </footer>
     </div>

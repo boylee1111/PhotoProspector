@@ -47,9 +47,9 @@ $(function () {
         });
     }
 
+    initPhotoUpload();
     $('body').css('display', 'none');
     $('body').fadeIn();
-    initPhotoUpload();
 });
 
 function initPhotoUpload() {
