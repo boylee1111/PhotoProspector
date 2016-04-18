@@ -59,6 +59,9 @@ namespace PhotoProspector
                 "~/Content/corner_ribbon.css",
                 "~/Content/vicons-font.css"));
 
+            bundles.Add(new StyleBundle("~/Content/custombutton").Include(
+                "~/Content/custom_button.css"));
+
             bundles.Add(new StyleBundle("~/Content/upload").Include(
                 "~/Content/site.upload.css",
                 "~/Content/site.upload.button.css"));

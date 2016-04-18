@@ -1,11 +1,24 @@
 ﻿@model PhotoProspector.ViewModels.PersonListViewModel
 
 @Styles.Render("~/Content/scanresult")
+@Styles.Render("~/Content/custombutton")
 @Scripts.Render("~/bundles/scanresult")
 
 <div id="scan_result_preview">
     <div id="preview_img_container">
         <img id="scan_result_img" src="@Model.ImageURL" />
+    </div>
+</div>
+<div id="uploaded_options">
+    <svg class="hidden">
+        <defs>
+            <clipPath id="clipBox" clipPathUnits="objectBoundingBox">
+                <polygon points="0,0 0,1 0.35,1 0.35,0.6 0.65,0.6 0.65,1 1,1 1,0" />
+            </clipPath>
+        </defs>
+    </svg>
+    <div id="buttons_container" class="box bg-1">
+        <button id="upload_button" class="custom-button custom-button--itzel custom-button--text-thick"><i class="custom-button__icon icon icon-home"></i><span>Return Home</span></button>
     </div>
 </div>
 <div id="person_info_container">
@@ -32,10 +45,10 @@
                             <td class="lalign">@Html.DisplayFor(p => person.alias)</td>
                             <td class="td_photo"><img class="avatar" src="@person.photoPath" /></td>
                             <td class="no_wrap">@Html.DisplayFor(p => person.displayname)</td>
-                            <td>@Html.DisplayFor(p => person.title)</td>
-                            <td>@Html.DisplayFor(p => person.specialty)</td>
-                            <td>@Html.DisplayFor(p => person.team)</td>
-                            <td>@Html.DisplayFor(p => person.favoritesport)</td>
+                            <td class="no_wrap">@Html.DisplayFor(p => person.title)</td>
+                            <td class="no_wrap">@Html.DisplayFor(p => person.specialty)</td>
+                            <td class="no_wrap">@Html.DisplayFor(p => person.team)</td>
+                            <td class="no_wrap">@Html.DisplayFor(p => person.favoritesport)</td>
                         </tr>
                     }
                 </tbody>
