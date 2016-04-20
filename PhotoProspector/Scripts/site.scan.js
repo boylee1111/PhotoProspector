@@ -18,9 +18,9 @@ $(function () {
     resetButton = $('#upload_button');
 
     eventBinding();
-    initScanPreviewWindowResize();
 
     $('body').css('display', 'none');
+    initScanPreviewWindowResize();
     $('body').fadeIn();
 });
 

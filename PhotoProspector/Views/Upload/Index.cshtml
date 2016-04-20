@@ -24,10 +24,12 @@
     </div>
     <div id="logo-section">
         <div id="logo-section-cover">
+            <div id="cover-top"></div>
             <div id="cover-description">
                 <p>Give us a photo.</p>
                 <p>We tell you who is him/her.</p>
             </div>
+            <div id="cover-middle"></div>
             <div id="photo-upload-box">
                 @using (Ajax.BeginForm("Upload", "Upload", new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "photo-upload-form" }))
                 {

@@ -8,7 +8,12 @@ var jcrop_api,
     crop_frame,
     form_input_file,
     upload_form,
-    upload_box;
+    upload_box,
+    uploadingContainer,
+    uploadingSection,
+    logoSection,
+    logoSectionCover,
+    coverDescription;
 
 var maxSizeAllowed = 2;     // Upload limit in MB
 var maxSizeInBytes = maxSizeAllowed * 1024 * 1024;
@@ -19,6 +24,11 @@ $(function () {
         form_input_file = $('#photo-upload-form input:file');
         upload_form = $('#photo-upload-form');
         upload_box = $('#photo-upload-box');
+        uploadingContainer = $('#uploading-container');
+        uploadingSection = $('#uploading-section');
+        logoSection = $('#logo-section');
+        logoSectionCover = $('#logo-section-cover');
+        coverDescription = $('#cover-description');
 
         $('#photo-upload-max-size').html(maxSizeAllowed);
         $('#photo-upload-form input:file').on('change', function (e) {
@@ -47,8 +57,8 @@ $(function () {
         });
     }
 
-    initPhotoUpload();
     $('body').css('display', 'none');
+    initPhotoUpload();
     $('body').fadeIn();
 });
 
