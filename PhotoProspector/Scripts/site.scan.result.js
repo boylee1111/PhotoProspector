@@ -23,7 +23,7 @@ $(function () {
 function eventBinding() {
     resetButton.click(function (e) {
         e.preventDefault();
-        window.location.href = document.location.origin;
+        window.location.href = webroot;
     });
 }
 

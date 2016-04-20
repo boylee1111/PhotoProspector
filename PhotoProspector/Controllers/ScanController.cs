@@ -116,7 +116,7 @@ namespace PhotoProspector.Controllers
                 DrawImg(filepath, drawfilepath, intarray, names, facenum);
 
                 personlist.Persons = GetPersonListByDataSet(myds);
-                personlist.ImageURL = "/images/" + drawfilename;
+                personlist.ImageURL = "./images/" + drawfilename;
 
             }
 
@@ -142,7 +142,7 @@ namespace PhotoProspector.Controllers
             person1.specialty = "Strength";
             person1.team = "Team 1";
             person1.favoritesport = "Weightlifting";
-            person1.photoPath = "/Content/Images/test_img_1.png";
+            person1.photoPath = "./Content/Images/test_img_1.png";
             var person2 = new Person();
             person2.displayname = "Dwarf Two";
             person2.alias = "two";
@@ -150,7 +150,7 @@ namespace PhotoProspector.Controllers
             person2.specialty = "Clairvoyance";
             person2.team = "Team 2";
             person2.favoritesport = "Hao Change Hao Change Hao Change Hao Change Hao Change Hao Change Hao Change Hao Change Hao Change Hao Change";
-            person2.photoPath = "/Content/Images/test_img_2.png";
+            person2.photoPath = "./Content/Images/test_img_2.png";
             var person3 = new Person();
             person3.displayname = "Dwarf Three";
             person3.alias = "three";
@@ -158,13 +158,13 @@ namespace PhotoProspector.Controllers
             person3.specialty = "Impregnable";
             person3.team = "Team 3";
             person3.favoritesport = "";
-            person3.photoPath = "/Content/Images/test_img_3.png";
+            person3.photoPath = "./Content/Images/test_img_3.png";
 
             personListViewModel.Persons.Add(person1);
             personListViewModel.Persons.Add(person2);
             personListViewModel.Persons.Add(person3);
 
-            personListViewModel.ImageURL = "/Content/Images/test.jpg";
+            personListViewModel.ImageURL = "./Content/Images/test.jpg";
 
             return personListViewModel;
 

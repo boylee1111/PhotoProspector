@@ -15,9 +15,8 @@ namespace PhotoProspector.Controllers
     {
         private const int UploadScreenWidth = 800;  // Change the value of the width of the image on the screen
 
-        private const string TempFolder = "/Temp";
-        private const string MapTempFolder = "~" + TempFolder;
-        private const string UploadPath = "/images";
+        private const string UploadImgFolder = "/images";
+        private const string UploadPath = "~" + UploadImgFolder;
 
         private readonly string[] _imageFileExtensions = { ".jpg", ".png", ".gif", ".jpeg" };
 
@@ -53,13 +52,13 @@ namespace PhotoProspector.Controllers
             try
             {
                 // Get file from temporary folder
-                var fn = Path.Combine(Server.MapPath(MapTempFolder), Path.GetFileName(fileName));
+                var fn = Path.Combine(Server.MapPath(UploadPath), Path.GetFileName(fileName));
                 var img = new WebImage(fn);
                 // ... delete the temporary file,...
                 System.IO.File.Delete(fn);
                 // ... and save the new one.
                 var newFileName = Path.Combine(UploadPath, Path.GetFileName(fn));
-                var newFileLocation = HttpContext.Server.MapPath(newFileName);
+                var newFileLocation = Server.MapPath(newFileName);
                 if (Directory.Exists(Path.GetDirectoryName(newFileLocation)) == false)
                 {
                     Directory.CreateDirectory(Path.GetDirectoryName(newFileLocation));
@@ -84,7 +83,7 @@ namespace PhotoProspector.Controllers
                 }
 
 
-                return Json(new { success = true, uploadFileLocation = Path.Combine(UploadPath, cutfilename) });
+                return Json(new { success = true, uploadFileLocation = "." + Path.Combine(UploadImgFolder, cutfilename) });
             }
             catch (Exception ex)
             {
@@ -105,7 +104,7 @@ namespace PhotoProspector.Controllers
         private string GetTempSavedFilePath(HttpPostedFileBase file)
         {
             // Define destination
-            var serverPath = HttpContext.Server.MapPath(TempFolder);
+            var serverPath = Server.MapPath(UploadPath);
             if (Directory.Exists(serverPath) == false)
             {
                 Directory.CreateDirectory(serverPath);
@@ -117,7 +116,7 @@ namespace PhotoProspector.Controllers
 
             // Clean up old files after every save
             CleanUpTempFolder(1);
-            return Path.Combine(TempFolder, fileName);
+            return Path.Combine(UploadPath, fileName);
         }
 
         private static string SaveTemporaryUploadFileImage(HttpPostedFileBase file, string serverPath, string fileName)
@@ -141,7 +140,7 @@ namespace PhotoProspector.Controllers
             try
             {
                 var currentUtcNow = DateTime.UtcNow;
-                var serverPath = HttpContext.Server.MapPath("/Temp");
+                var serverPath = Server.MapPath("~/Temp");
                 if (!Directory.Exists(serverPath)) return;
                 var fileEntries = Directory.GetFiles(serverPath);
                 foreach (var fileEntry in fileEntries)

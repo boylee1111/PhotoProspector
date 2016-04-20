@@ -78,7 +78,7 @@ function initPhotoUpload() {
                 upload_form.removeClass('hidden');
                 $('.upload-progress').addClass('hidden');
                 alert('Error: ' + data.errorMessage + ' We will take you back.');
-                window.location.href = '/Upload';
+                window.location.href = webroot;
 
             } else {
                 $('#preview-pane .preview-container img').attr('src', data.fileName);
@@ -92,6 +92,10 @@ function initPhotoUpload() {
             }
         },
         complete: function (xhr) {
+        },
+        error: function (request, status, error) {
+            alert('Error: ' + error);
+            alert(request.responseText);
         }
     });
 }
@@ -110,21 +114,23 @@ function savePhoto() {
 
     $.ajax({
         type: 'POST',
-        url: '/Upload/Save',
+        url: webroot + 'Upload/Save',
         traditional: true,
         data: {
             fileName: img.attr('src')
         }
     }).done(function (data) {
         if (data.success === true) {
-            $.redirect("/Scan", { fileName: data.uploadFileLocation });
+            $.redirect(webroot + "Scan", { fileName: data.uploadFileLocation });
         } else {
             alert('Error: ' + data.errorMessage + ' We will take you back.');
-            window.location.href('/Upload');
+            window.location.href(webroot);
         }
-    }).fail(function (e) {
+    }).fail(function (jqXHR, textStatus, error) {
+        $('body').html(jqXHR.responseText);
+        alert(jqXHR.responseText);
         alert('Error: Cannot upload photo at this time. We will take you back.');
-        window.location.href('/Upload');
+        window.location.href(webroot);
     });
 }
 
