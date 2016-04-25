@@ -66,8 +66,8 @@ namespace PhotoProspector.Controllers
 
                 img.Save(newFileLocation);
 
-                int w = 600;
-                int h = 600;
+                int w = 800;
+                int h = 800;
 
                 string filename = Path.GetFileName(fn);
 

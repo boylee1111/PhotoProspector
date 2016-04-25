@@ -75,7 +75,7 @@ namespace PhotoProspector.Controllers
 
                 DrawImg(filepath, drawfilepath, noface, noname, 1);
 
-
+                personlist.ImageURL = "./images/" + drawfilename;
             }
             else
             {
@@ -317,7 +317,13 @@ namespace PhotoProspector.Controllers
             {
 
                 resp = VerifyRequest(faceid, sourceid[i]);
-                if (resp.IndexOf("true") == -1)
+
+                string[] tempth = resp.Split(':');
+                string[] tempth2 = tempth[2].Split('}');
+                float value = Convert.ToSingle(tempth2[0]);
+                float threshold = 0.50f;
+
+                if (resp.IndexOf("true") == -1 || value < threshold)
                 {
 
                     name = "No Match";
@@ -471,8 +477,8 @@ namespace PhotoProspector.Controllers
             for (int i = 0; i < facenum; i++)
             {
 
-                Pen pen = new Pen(Color.DarkGreen, 2);
-                Brush b = Brushes.DarkGreen;
+                Pen pen = new Pen(Color.DeepSkyBlue, 2);
+                Brush b = Brushes.DeepSkyBlue;
 
                 if (namearray[i] == "No Match" | namearray[i] == "No face Detected!")
                 {
