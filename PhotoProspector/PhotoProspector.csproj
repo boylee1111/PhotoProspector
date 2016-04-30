@@ -211,6 +211,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ScanController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -218,8 +219,12 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FileService.cs" />
+    <Compile Include="Services\ImageService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Validations\EqualValueAttribute.cs" />
     <Compile Include="ViewModels\PersonListViewModel.cs" />
+    <Compile Include="ViewModels\SignUpViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -229,7 +234,9 @@
     <Content Include="Content\Fonts\codropsicons\codropsicons.svg" />
     <Content Include="Content\Fonts\codropsicons\license.txt" />
     <Content Include="Content\Fonts\vicons\vicons.svg" />
+    <Content Include="Content\Images\avatar.png" />
     <Content Include="Content\Images\home.jpg" />
+    <Content Include="Content\Images\invalid.png" />
     <Content Include="Content\Images\ms-logo.jpg" />
     <Content Include="Content\Images\test.jpg" />
     <Content Include="Content\Images\test_img_1.png" />
@@ -240,6 +247,7 @@
     <Content Include="Content\site.scan.css" />
     <Content Include="Content\site.scan.result.css" />
     <Content Include="Content\site.scan.result.table.css" />
+    <Content Include="Content\site.signup.css" />
     <Content Include="Content\Uploading\uploading.css" />
     <Content Include="Content\site.upload.css" />
     <Content Include="Content\vicons-font.css" />
@@ -294,11 +302,14 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site.about.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\site.scan.js" />
     <Content Include="Scripts\site.scan.result.js" />
+    <Content Include="Scripts\site.signup.js" />
     <Content Include="Scripts\site.upload.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Shared\EditorTemplates\HttpPostedFileBase.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -317,6 +328,7 @@
     <Content Include="Views\Scan\Index.cshtml" />
     <Content Include="Views\Scan\Scan.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\SignUp\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

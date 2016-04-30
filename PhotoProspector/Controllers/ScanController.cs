@@ -1,6 +1,4 @@
-﻿using PhotoProspector.Models;
-using PhotoProspector.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -11,6 +9,8 @@ using System.IO;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PhotoProspector.Models;
+using PhotoProspector.ViewModels;
 
 namespace PhotoProspector.Controllers
 {

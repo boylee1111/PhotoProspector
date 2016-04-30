@@ -49,6 +49,12 @@ namespace PhotoProspector
 
             bundles.Add(new ScriptBundle("~/bundles/scanresult").Include(
                 "~/Scripts/site.scan.result.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/about").Include(
+                "~/Scripts/site.about.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/signup").Include(
+                "~/Scripts/site.signup.js"));
         }
 
         public static void RegisterStyleBundles(BundleCollection bundles)
@@ -79,6 +85,9 @@ namespace PhotoProspector
 
             bundles.Add(new StyleBundle("~/Content/about").Include(
                 "~/Content/site.about.css"));
+
+            bundles.Add(new StyleBundle("~/Content/signup").Include(
+                "~/Content/site.signup.css"));
         }
     }
 }
