@@ -1,61 +1,82 @@
 ﻿@model PhotoProspector.ViewModels.SignUpViewModel
-
 @{
     ViewBag.Title = "Sign Up";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @Scripts.Render("~/bundles/signup")
+@Styles.Render("~/Content/profile")
 @Styles.Render("~/Content/signup")
 
-<div id="signup_container">
-    @using (Html.BeginForm("Index", "SignUp", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <h1>Sign You Up!</h1>
+<div class="user_container">
+    <h1 id="signup_title">Sign You Up!</h1>
 
-        @Html.ValidationSummary(true)
-        <fieldset>
-            <legend><span class="number">1</span>Your Basic Info*</legend>
-            @Html.LabelFor(model => model.alias)
-            @Html.EditorFor(model => model.alias, new { id = "alias" })
+    <div>
+        @{if (Model.Status == PhotoProspector.ViewModels.SignUpViewModel.SignUpStatus.SignUpSucceed)
+            {
+                <p class="user_message success_message">Congratulation! You've signed up, click @Html.ActionLink("here", "Index", "Upload") back.</p>
+            }
+            else if (Model.Status == PhotoProspector.ViewModels.SignUpViewModel.SignUpStatus.SignUpFailed)
+            {
+                <p class="user_message failure_message">@Model.ErrorMessage</p>
+            }
+        }
+    </div>
 
-            @Html.LabelFor(model => model.displayname)
-            @Html.EditorFor(model => model.displayname, new { id = "name" })
+    <div id="signup_form_container">
+        @using (Html.BeginForm("Index", "SignUp", FormMethod.Post, new { id = "sign_up_form", enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend><span class="number signup_legend">1</span>Your Basic Info*</legend>
+                @Html.LabelFor(model => model.alias)
+                @Html.EditorFor(model => model.alias, new { id = "alias" })
 
-            @Html.LabelFor(model => model.photoPath)
-            <div id="avatar_upload_editor">
-                <img id="avatar_preview_img" src="~/Content/Images/avatar.png" />
-                @Html.EditorFor(model => model.photoPath, new { id = "photo", accept = "image/*" })
-            </div>
-        </fieldset>
+                @Html.LabelFor(model => model.displayname)
+                @Html.EditorFor(model => model.displayname, new { id = "name" })
 
-        <fieldset>
-            <legend><span class="number">2</span>Your Profile (Optional)</legend>
-            @Html.LabelFor(model => model.title)
-            @Html.EditorFor(model => model.title, new { id = "title" })
+                @Html.LabelFor(model => model.photoPath)
+                <div id="avatar_upload_editor">
+                    <img id="avatar_preview_img" src="~/Content/Images/avatar.png" />
+                    @Html.EditorFor(model => model.photoPath, new { id = "photo", accept = "image/*" })
+                </div>
+            </fieldset>
 
-            @Html.LabelFor(model => model.specialty)
-            @Html.EditorFor(model => model.specialty, new { id = "specialty" })
+            <fieldset>
+                <legend><span class="number signup_legend">2</span>Your Profile (Optional)</legend>
+                @Html.LabelFor(model => model.title)
+                @Html.EditorFor(model => model.title, new { id = "title" })
 
-            @Html.LabelFor(model => model.team)
-            @Html.EditorFor(model => model.team, new { id = "team" })
+                @Html.LabelFor(model => model.specialty)
+                @Html.EditorFor(model => model.specialty, new { id = "specialty" })
 
-            @Html.LabelFor(model => model.favoritesport)
-            @Html.EditorFor(model => model.favoritesport, new { id = "sport" })
-        </fieldset>
+                @Html.LabelFor(model => model.team)
+                @Html.EditorFor(model => model.team, new { id = "team" })
 
-        <fieldset>
-            <legend><span class="number">3</span>Invitation*</legend>
-            @Html.LabelFor(model => model.SignUpCode)
-            @Html.EditorFor(model => model.SignUpCode, new { id = "code" })
+                @Html.LabelFor(model => model.favoritesport)
+                @Html.EditorFor(model => model.favoritesport, new { id = "sport" })
+            </fieldset>
 
-            @Html.ValidationMessageFor(model => model.SignUpCode)
+            <fieldset>
+                <legend><span class="number signup_legend">3</span>Invitation*</legend>
+                @Html.LabelFor(model => model.SignUpCode)
+                @Html.EditorFor(model => model.SignUpCode, new { id = "code" })
 
-            <p id="invitation_code_note">*Invitation Code is used for signing up for qualified user. If you want to sign yourself up here, please contact <a href="mailto:ericyi@microsoft.com">Eric Yi</a> or <a href="mailto:boyli@microsoft.com">Boyi Li</a>.</p>
-        </fieldset>
+                @Html.ValidationMessageFor(model => model.SignUpCode)
 
-        <button type="submit" id="signup_buton">Sign Up</button>
-        @Html.ActionLink("I want to delete my existing profile.", "DeleteUser", "SignUp")
-    }
+                <p id="invitation_code_note">*Invitation Code is used for signing up for qualified user. If you want to sign yourself up here, please contact <a href="mailto:ericyi@microsoft.com">Eric Yi</a> or <a href="mailto:boyli@microsoft.com">Boyi Li</a>.</p>
+            </fieldset>
 
+            <button type="submit" id="signup_buton" class="signup">Sign Up</button>
+            @Html.ActionLink("I want to delete my existing profile.", "DeleteUser", "SignUp")
+        }
+    </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('body').css('display', 'none');
+        $('body').fadeIn();
+    });
+</script>
+

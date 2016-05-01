@@ -4,7 +4,7 @@ body {
     background-color: #f4f7f8;
 }
 
-#signup_container {
+.user_container {
     margin-top: 35px;
 }
 
@@ -110,14 +110,12 @@ button {
     display: block;
     padding: 19px 39px 18px 39px;
     color: #FFF;
-    background-color: #4bc970;
     font-size: 18px;
     text-align: center;
     font-style: normal;
     border-radius: 5px;
     width: 100%;
     max-width: 350px;
-    border: 1px solid #3ac162;
     border-width: 1px 1px 3px;
     box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
     margin-bottom: 10px;
@@ -126,9 +124,26 @@ button {
 }
 
     button:hover {
-        background-color: #3ac162;
         opacity: 0.75;
     }
+
+    button.signup {
+        background-color: #4bc970;
+        border: 1px solid #3ac162;
+    }
+
+        button.signup:hover {
+            background-color: #3ac162;
+        }
+
+    button.delete {
+        background-color: #F44336;
+        border: 1px solid #F44336;
+    }
+
+        button.delete:hover {
+            background-color: #F44336;
+        }
 
 fieldset {
     display: inline-block;
@@ -158,7 +173,6 @@ label {
     }
 
 .number {
-    background-color: #5fcf80;
     color: #fff;
     height: 30px;
     width: 30px;
@@ -170,6 +184,14 @@ label {
     text-shadow: 0 1px 0 rgba(255,255,255,0.2);
     border-radius: 100%;
 }
+
+.number.signup_legend{
+        background-color: #5fcf80;
+}
+
+.number.delete_legend{
+            background-color: #F44336;
+            }
 
 @media screen and (min-width: 480px) {
     form {
@@ -186,3 +208,21 @@ label {
 .field-validation-error {
     color: #b03535;
 }
+
+.user_message {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+    .user_message.success_message {
+        color: #5fcf80;
+    }
+
+    .user_message.failure_message {
+        color: #b03535;
+    }

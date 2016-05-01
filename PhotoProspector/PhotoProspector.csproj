@@ -210,12 +210,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ScanController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\PhotoConstants.cs" />
+    <Compile Include="Helpers\MvcHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,6 +226,7 @@
     <Compile Include="Services\ImageService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Validations\EqualValueAttribute.cs" />
+    <Compile Include="ViewModels\DeleteUserViewModel.cs" />
     <Compile Include="ViewModels\PersonListViewModel.cs" />
     <Compile Include="ViewModels\SignUpViewModel.cs" />
   </ItemGroup>
@@ -243,11 +247,11 @@
     <Content Include="Content\Images\test_img_2.png" />
     <Content Include="Content\Images\test_img_3.png" />
     <Content Include="Content\site.about.css" />
+    <Content Include="Content\site.profile.css" />
     <Content Include="Content\site.scan.button.css" />
     <Content Include="Content\site.scan.css" />
     <Content Include="Content\site.scan.result.css" />
     <Content Include="Content\site.scan.result.table.css" />
-    <Content Include="Content\site.signup.css" />
     <Content Include="Content\Uploading\uploading.css" />
     <Content Include="Content\site.upload.css" />
     <Content Include="Content\vicons-font.css" />
@@ -303,6 +307,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\site.about.js" />
+    <Content Include="Scripts\site.delete.user.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\site.scan.js" />
     <Content Include="Scripts\site.scan.result.js" />
@@ -321,7 +326,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Upload\Index.cshtml" />
     <Content Include="Scripts\site.upload.button.js" />
@@ -329,6 +333,8 @@
     <Content Include="Views\Scan\Scan.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\SignUp\Index.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\SignUp\DeleteUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -29,7 +29,6 @@ namespace PhotoProspector.Controllers
             return View(new SignUpViewModel());
         }
 
-        [HttpPost]
         public ActionResult Index(SignUpViewModel signUpViewModel)
         {
             try
@@ -44,19 +43,61 @@ namespace PhotoProspector.Controllers
                     }
                     var savedFullPaht = tempFolder + fileService.filenameHashed(filename);
                     signUpViewModel.photoPath.SaveAs(savedFullPaht);
-                    InsertUserToSQL(savedFullPaht, signUpViewModel);
+                    if (InsertUserToSQL(savedFullPaht, signUpViewModel))
+                    {
+                        return View(new SignUpViewModel(SignUpViewModel.SignUpStatus.SignUpSucceed));
+                    }
+                    else
+                    {
+                        return View(new SignUpViewModel(SignUpViewModel.SignUpStatus.SignUpFailed, "Sign up failed. This alias had been signed up."));
+                    }
                 }
             }
             catch
             {
-                return View(signUpViewModel);
+                return View(new SignUpViewModel(SignUpViewModel.SignUpStatus.SignUpFailed, "Sign up failed. Please try again later."));
             }
 
             return View(signUpViewModel);
         }
 
+        [HttpGet]
+        public ActionResult DeleteUser()
+        {
+            return View(new DeleteUserViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult DeleteUser(DeleteUserViewModel deleteUserViewModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (DeleteUserFromSQL(deleteUserViewModel.alias))
+                    {
+                        return View(new DeleteUserViewModel(DeleteUserViewModel.DeleteUserStatus.DeleteUserSucceed));
+                    }
+                    else
+                    {
+                        return View(new DeleteUserViewModel(DeleteUserViewModel.DeleteUserStatus.DeleteUserFailed, "Delete user failed. User alias doesn't exist."));
+                    }
+                }
+            }
+            catch
+            {
+                return View(new DeleteUserViewModel(DeleteUserViewModel.DeleteUserStatus.DeleteUserFailed, "Delete user failed. Please try again later."));
+            }
+
+            return View(deleteUserViewModel);
+        }
+
         public bool DeleteUserFromSQL(string alias)
         {
+#if DEBUG
+            return (new Random().Next(100) % 2 == 0);
+#endif
+
             bool result = false;
 
             string trainimgpath1 = Server.MapPath("~/ImageSource/") + alias + ".jpg";
@@ -80,7 +121,6 @@ namespace PhotoProspector.Controllers
 
             try
             {
-
                 delete.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -97,7 +137,9 @@ namespace PhotoProspector.Controllers
         }
         public bool InsertUserToSQL(string imagepath, Person rperson)
         {
-
+#if DEBUG
+            return (new Random().Next(100) % 2 == 0);
+#endif
             bool result = false;
 
             string[] temp = imagepath.Split('.');

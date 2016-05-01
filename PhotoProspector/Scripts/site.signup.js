@@ -1,17 +1,25 @@
 ﻿'use strict';
 
 var signUpButon,
+    signUpForm,
     photoPathInput,
     avatarUploadEditor,
-    avatarPreviewImg;
+    avatarPreviewImg,
+    signupResultDiv,
+    signupSuccessMessage,
+    signupFailureMessage;
 
 $(function () {
     signUpButon = $('#signup_buton');
+    signUpForm = $('#sign_up_form');
     photoPathInput = $('#photoPath');
     avatarUploadEditor = $('#avatar_upload_editor');
     avatarPreviewImg = $('#avatar_preview_img');
+    signupResultDiv = $('#signup_result');
+    signupSuccessMessage = $('.success_message');
+    signupFailureMessage = $('.failure_message');
 
-    eventBinding()
+    eventBinding();
 
     $('body').css('display', 'none');
     $('body').fadeIn();
@@ -33,11 +41,12 @@ function eventBinding() {
     });
 
     signUpButon.click(function (e) {
-        //e.preventDefault();
+        e.preventDefault();
         if (photoPathInput.get(0).files.length == 0) { // if no file is selected, show input error
             avatarUploadEditor.addClass('input-file-validation-error');
         } else {
             avatarUploadEditor.removeClass('input-file-validation-error');
+            signUpForm.submit();
         }
     });
 

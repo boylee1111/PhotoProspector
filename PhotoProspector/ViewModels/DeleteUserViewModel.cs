@@ -1,39 +1,37 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Web;
 using PhotoProspector.Helpers;
-using PhotoProspector.Models;
 using PhotoProspector.Validations;
 
 namespace PhotoProspector.ViewModels
 {
-    public class SignUpViewModel : Person
+    public class DeleteUserViewModel
     {
-        public SignUpViewModel() : this(SignUpStatus.Initial, "") { }
+        public DeleteUserViewModel() : this(DeleteUserStatus.Initial, "") { }
 
-        public SignUpViewModel(SignUpStatus status = SignUpStatus.Initial, string errorMessage = "")
+        public DeleteUserViewModel(DeleteUserStatus status = DeleteUserStatus.Initial, string errorMessage = "")
         {
             Status = status;
             ErrorMessage = errorMessage;
         }
 
         [Required]
-        public new HttpPostedFileBase photoPath { get; set; }
+        public string alias { get; set; }
 
         [DefaultValue("")]
         [EqualValue(PhotoConstants.cInvitationCode, ErrorMessage = "Invitation Code is not correct.")]
         [DisplayName("Code")]
         public string SignUpCode { get; set; }
 
-        public SignUpStatus Status { get; private set; }
+        public DeleteUserStatus Status { get; private set; }
 
         public string ErrorMessage { get; private set; }
 
-        public enum SignUpStatus
+        public enum DeleteUserStatus
         {
             Initial = 1,
-            SignUpSucceed = 2,
-            SignUpFailed = 3
+            DeleteUserSucceed = 2,
+            DeleteUserFailed = 3
         }
     }
 }

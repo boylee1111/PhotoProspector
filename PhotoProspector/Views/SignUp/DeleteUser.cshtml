@@ -1,0 +1,51 @@
+﻿@model PhotoProspector.ViewModels.DeleteUserViewModel
+
+@{
+    ViewBag.Title = "DeleteUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/deleteuser")
+@Styles.Render("~/Content/profile")
+
+<div class="user_container">
+    <h1 id="delete_title">Delete Profile</h1>
+
+    <div>
+        @{if (Model.Status == PhotoProspector.ViewModels.DeleteUserViewModel.DeleteUserStatus.DeleteUserSucceed)
+            {
+                <p class="user_message success_message">Delete successfully, click @Html.ActionLink("here", "Index", "Upload") back.</p>
+            }
+            else if (Model.Status == PhotoProspector.ViewModels.DeleteUserViewModel.DeleteUserStatus.DeleteUserFailed)
+            {
+                <p class="user_message failure_message">@Model.ErrorMessage</p>
+            }
+        }
+    </div>
+
+    <div id="delete_form_container">
+        @using (Html.BeginForm("DeleteUser", "SignUp", FormMethod.Post, new { id = "sign_up_form", enctype = "multipart/form-data" }))
+            {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend><span class="number delete_legend">1</span>Basic Info*</legend>
+                @Html.LabelFor(model => model.alias)
+                @Html.EditorFor(model => model.alias, new { id = "alias" })
+
+                @Html.LabelFor(model => model.SignUpCode)
+                @Html.EditorFor(model => model.SignUpCode, new { id = "code" })
+
+                @Html.ValidationMessageFor(model => model.SignUpCode)
+            </fieldset>
+            <button type="submit" id="delete_buton" class="delete">Delete</button>
+            @Html.ActionLink("I want to sign up profile.", "Index", "SignUp")
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('body').css('display', 'none');
+        $('body').fadeIn();
+    });
+</script>
