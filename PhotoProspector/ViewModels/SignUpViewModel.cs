@@ -15,6 +15,7 @@ namespace PhotoProspector.ViewModels
         {
             Status = status;
             ErrorMessage = errorMessage;
+            base.photoPath = title = specialty = team = favoritesport = "";
         }
 
         [Required]

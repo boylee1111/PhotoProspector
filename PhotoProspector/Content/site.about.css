@@ -6,7 +6,7 @@ body {
     background-color: rgb(237, 237, 237);
 }
 
-h1{
+h1 {
     margin: 45px 0 50px 0;
     text-align: center;
     font-family: 'Nunito', sans-serif;
@@ -24,7 +24,9 @@ h3 {
 
 #pricing {
     width: 709px;
-    margin: 0px auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
     font-family: 'Open Sans', Helvetica;
 }
 

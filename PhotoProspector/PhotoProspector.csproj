@@ -242,6 +242,7 @@
     <Content Include="Content\Images\home.jpg" />
     <Content Include="Content\Images\invalid.png" />
     <Content Include="Content\Images\ms-logo.jpg" />
+    <Content Include="Content\Images\signup_icon.png" />
     <Content Include="Content\Images\test.jpg" />
     <Content Include="Content\Images\test_img_1.png" />
     <Content Include="Content\Images\test_img_2.png" />

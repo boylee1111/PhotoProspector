@@ -29,7 +29,7 @@
                 <p>Give us a photo.</p>
                 <p>We tell you who is him/her.</p>
             </div>
-            <div id="cover-middle"></div>
+            <div class="cover-middle"></div>
             <div id="photo-upload-box">
                 @using (Ajax.BeginForm("Upload", "Upload", new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "photo-upload-form" }))
                 {
@@ -49,16 +49,13 @@
                 </div>
                 <div id="upload-status"></div>
             </div>
-        </div>
-    </div>
-</div>
-<div id="photo-crop-box" class="hidden">
-    <p>
-        <img src="" id="crop-photo-target" alt="Uploaded image" />
-        <div id="preview-pane" class="hidden">
-            <div class="preview-container">
-                <img src="" class="jcrop-preview" alt="Preview" />
+            <div class="cover-middle"></div>
+            <div id="signup-section">
+                <a id="signup-link" href="@Url.Action("Index", "SignUp")">
+                    <spam id="signup-link-content">Sign Up</spam>
+                    <img id="signup-link-img" src="~/Content/Images/signup_icon.png" ? />
+                </a>
             </div>
         </div>
-    </p>
+    </div>
 </div>

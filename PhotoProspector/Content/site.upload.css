@@ -20,6 +20,7 @@
 }
 
 #logo-section-cover {
+    position: relative;
     left: 0px;
     right: 0px;
     height: 100%;
@@ -35,14 +36,14 @@
     height: 10%;
 }
 
-#cover-middle {
+.cover-middle {
     height: 5%;
 }
 
 #cover-description {
     text-align: center !important;
     width: 100%;
-    font-family: 'Segoe UI Local', 'Segoe WP', 'Segoe UI Web', Tahoma, 'Helvetica Neue', Helvetica, 'Meiryo UI', Meiryo, 'Arial Unicode MS', sans-serif;
+    font-family: "Segoe UI Local","Segoe WP","Segoe UI Web",Tahoma,"Helvetica Neue",Helvetica,"Meiryo UI",Meiryo,"Arial Unicode MS",sans-serif;
     font-size: 50px;
     text-align: center;
     font-weight: 200;
@@ -79,8 +80,6 @@
 
     #preview-pane .preview-container {
         overflow: hidden;
-        /*width: 100px;*/ /* ToDo - size of the crop window*/
-        /*height: 100px; /* ToDo - size of the crop window*/
     }
 
 .upload-progress {
@@ -96,4 +95,51 @@
 .upload-percent-bar {
     background-color: #bbb;
     height: 20px;
+}
+
+#signup-section {
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+}
+
+#signup-link {
+    display: inline-block;
+    margin: 15px 8px;
+    background-color: #7fba00;
+    border-color: #7fba00;
+    text-decoration: none;
+    color: #FFF;
+    border-width: 2px;
+    font-size: 18px;
+    max-width: none;
+    font-weight: 500;
+    padding: 5px 10px 7px 13px;
+    width: auto;
+    border-radius:50px;;
+    border-style: solid;
+    cursor: pointer;
+    height: 100%;
+    font-family: "Segoe UI Local","Segoe WP","Segoe UI Web",Tahoma,"Helvetica Neue",Helvetica,"Meiryo UI",Meiryo,"Arial Unicode MS",sans-serif;
+    -webkit-box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.2);
+    transition: color .2s ease-in-out, transform .2s ease-in-out;
+    -webkit-transition: color .2s ease-in-out, transform .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out, transform .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out, transform .2s ease-in-out;
+    -o-transition: color .2s ease-in-out, transform .2s ease-in-out;
+}
+
+    #signup-link:hover {
+        background-color: #70a304;
+        border-color: #70a304;
+        transform: scale(1.1);
+    }
+
+#signup-link-img {
+    margin-left: 3px;
+    margin-bottom: 2px;
+    width: 18px;
+    height: 18px;
 }
