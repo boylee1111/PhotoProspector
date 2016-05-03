@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Photo Prospector";
+    ViewBag.Title = "Photo Inspector";
 }
 @Scripts.Render("~/bundles/jqueryform")
 @Scripts.Render("~/bundles/upload")
@@ -27,7 +27,7 @@
             <div id="cover-top"></div>
             <div id="cover-description">
                 <p>Give us a photo.</p>
-                <p>We tell you who is him/her.</p>
+                <p>We tell you who he/she is.</p>
             </div>
             <div class="cover-middle"></div>
             <div id="photo-upload-box">
@@ -56,6 +56,16 @@
                     <img id="signup-link-img" src="~/Content/Images/signup_icon.png" ? />
                 </a>
             </div>
+        </div>
+        <div id="photo-crop-box" class="hidden">
+            <p>
+                <img src="" id="crop-photo-target" alt="Uploaded image" />
+                <div id="preview-pane" class="hidden">
+                    <div class="preview-container">
+                        <img src="" class="jcrop-preview" alt="Preview" />
+                    </div>
+                </div>
+            </p>
         </div>
     </div>
 </div>

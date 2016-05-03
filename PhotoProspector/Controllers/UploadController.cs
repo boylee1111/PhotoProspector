@@ -17,7 +17,7 @@ namespace PhotoProspector.Controllers
         private const string UploadImgFolder = "/images";
         private const string UploadPath = "~" + UploadImgFolder;
 
-        private readonly string[] _imageFileExtensions = { ".jpg", ".png", ".gif", ".jpeg" };
+        private readonly string[] _imageFileExtensions = { ".jpg", ".png", ".jpeg" };
 
         private readonly IImageService imageService;
 
