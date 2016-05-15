@@ -60,7 +60,24 @@ $(function () {
     $('body').css('display', 'none');
     initPhotoUpload();
     $('body').fadeIn();
+
+    setInterval(cycleBackgroundImg, 5000);
 });
+
+function cycleBackgroundImg() {
+    var firstBackgroundImg = $('#first_bg_img');
+    var activeBackgroundImg = $('#logo-section img.bg_img.img_active');
+    var nextBackgroundImg = firstBackgroundImg;
+    if (activeBackgroundImg.next().is('img')) {
+        var nextBackgroundImg = $('#logo-section img.bg_img.img_active').next();
+    }
+
+    nextBackgroundImg.css('z-index', 2);
+    activeBackgroundImg.fadeOut(1500, function () {
+        activeBackgroundImg.css('z-index', 1).show().removeClass('img_active');
+        nextBackgroundImg.css('z-index', 3).addClass('img_active');
+    });
+}
 
 function initPhotoUpload() {
     upload_form.ajaxForm({

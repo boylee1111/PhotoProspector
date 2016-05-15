@@ -13,14 +13,32 @@
     height: 100%;
     max-height: 100%;
     max-width: 100%;
-    background-image: url("Images/home.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: center top;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
+    #logo-section img.bg_img {
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        flex-shrink: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+        #logo-section img.bg_img.img_active {
+            z-index: 3;
+        }
+
 #logo-section-cover {
-    position: relative;
+    position: absolute;
     left: 0px;
     right: 0px;
     height: 100%;
@@ -29,7 +47,8 @@
     background-color: rgba(0,0,0,0.4);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: center top;
+    z-index: 10;
 }
 
 #cover-top {
@@ -116,7 +135,7 @@
     font-weight: 500;
     padding: 5px 10px 7px 13px;
     width: auto;
-    border-radius:50px;;
+    border-radius: 50px;
     border-style: solid;
     cursor: pointer;
     height: 100%;
