@@ -18,6 +18,7 @@ namespace PhotoProspector.App_Start
             builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
             builder.RegisterType<MessageService>().As<IMessageService>().SingleInstance();
             builder.RegisterType<TrainingService>().As<ITrainingService>().SingleInstance();
+            builder.RegisterType<ScanningService>().As<IScanningService>().SingleInstance();
 
             PhotoConstants.IoCContainer = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(PhotoConstants.IoCContainer));

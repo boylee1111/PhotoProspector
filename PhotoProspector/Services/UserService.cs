@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,6 +15,9 @@ namespace PhotoProspector.Services
         bool InsertInvitationCodeSQL(string alias, string code);
 
         InvitationCodeStatus CheckInvitationCode(string alias, string code);
+        List<Person> GetPersonListByDataSet(DataSet myDs);
+        DataSet[] GetDataSetsByAlias(string[] str);
+        string[] GetDisplayNameByDsarray(DataSet[] dsarray);
     }
 
 
@@ -265,5 +269,109 @@ namespace PhotoProspector.Services
             return result;
         }
 
+        public List<Person> GetPersonListByDataSet(DataSet myDs)
+        {
+            List<Person> PersonList = new List<Person>();
+
+            foreach (DataRow mDr in myDs.Tables[0].Rows)
+            {
+                Person person = new Person();
+
+                foreach (DataColumn mDc in myDs.Tables[0].Columns)
+                {
+                    if (mDc.ColumnName == "DisplayName")
+                    {
+                        person.displayname = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "Alias")
+                    {
+                        person.alias = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "Title")
+                    {
+                        person.title = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "Team")
+                    {
+                        person.team = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "Specialty")
+                    {
+                        person.specialty = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "FavoriteSport")
+                    {
+                        person.favoritesport = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "photoPath")
+                    {
+                        person.photoPath = mDr[mDc].ToString();
+                    }
+
+                }
+                PersonList.Add(person);
+
+            }
+            return PersonList;
+        }
+
+        public DataSet[] GetDataSetsByAlias(string[] str)
+        {
+            DataSet[] dsarray = new DataSet[str.Length];
+
+            string myStr = ConfigurationManager.AppSettings["ConnectionString"].ToString();
+            SqlConnection myConn = new SqlConnection(myStr);
+            myConn.Open();
+
+            string query = "select * from FaceWebsiteTable WHERE alias='";
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                query += str[i] + "'";
+                DataSet myDs = new DataSet();
+                SqlDataAdapter myDa = new SqlDataAdapter(query, myConn);
+
+                myDa.Fill(myDs);
+
+                dsarray[i] = myDs;
+                myDa.Dispose();
+                myDs.Dispose();
+                query = "select * from FaceWebsiteTable WHERE alias='";
+            }
+
+            myConn.Close();
+            return dsarray;
+        }
+
+        public string[] GetDisplayNameByDsarray(DataSet[] dsarray)
+        {
+            string[] displayname = new string[dsarray.Length];
+            string tempname = "";
+
+            for (int k = 0; k < dsarray.Length; k++)
+            {
+                if (dsarray[k].Tables[0].Rows.Count == 0)
+                {
+                    displayname[k] = "No Match";
+                    continue;
+                }
+
+                foreach (DataRow mDr in dsarray[k].Tables[0].Rows)
+                {
+                    foreach (DataColumn mDc in dsarray[k].Tables[0].Columns)
+                    {
+                        if (mDc.ColumnName == "DisplayName")
+                        {
+                            tempname = mDr[mDc].ToString();
+                            //Response.Write(tempname);                     
+                            displayname[k] = tempname;
+                        }
+                    }
+                }
+            }
+            //Response.Write(displayname.Length);
+
+            return displayname;
+        }
     }
 }

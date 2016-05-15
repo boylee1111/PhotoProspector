@@ -9,6 +9,7 @@ namespace PhotoProspector.Services
     public interface ITrainingService
     {
         void StartTraining(string trainpath);
+        string SyncRequest(byte[] byteData);
     }
 
     class TrainingService : ITrainingService
@@ -86,7 +87,7 @@ namespace PhotoProspector.Services
 
         }
 
-        private static string SyncRequest(byte[] byteData)
+        public string SyncRequest(byte[] byteData)
         {
             WebClient client = new WebClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
@@ -107,13 +108,23 @@ namespace PhotoProspector.Services
             //queryString["returnFaceAttributes"] = "{string}";
             var uri = "https://api.projectoxford.ai/face/v1.0/detect?" + queryString;
 
-            byte[] response = client.UploadData(uri, "POST", byteData);
+            byte[] response;
+
+            try
+            {
+                response = client.UploadData(uri, "POST", byteData);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
             string result = System.Text.Encoding.UTF8.GetString(response);
 
             return result;
 
         }
+
         private static string getFaceID(string str, string scanstr)
         {
             int inputl = scanstr.Length;

@@ -8,16 +8,16 @@ namespace PhotoProspector.Services
     public interface IImageService
     {
         void CutImg(string oPath, string nPaht, int w, int h, string mode);
+        void DrawImg(string path, string newpath, int[] intarray, string[] namearray, int facenum);
     }
 
     class ImageService : IImageService
     {
         public void CutImg(string oPath, string nPaht, int w, int h, string mode)
         {
-
             FileStream fs = new FileStream(oPath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
 
-            System.Drawing.Image oimg = System.Drawing.Image.FromStream(fs);
+            Image oimg = Image.FromStream(fs);
 
             //System.Drawing.Image oimg = System.Drawing.Image.FromFile(oPath);
 
@@ -64,7 +64,7 @@ namespace PhotoProspector.Services
                 default: break;
             }
 
-            System.Drawing.Image bitmap = new Bitmap(nToWidth, nToHeight);
+            Image bitmap = new Bitmap(nToWidth, nToHeight);
 
             Graphics gp = Graphics.FromImage(bitmap);
             gp.InterpolationMode = InterpolationMode.High;
@@ -79,7 +79,6 @@ namespace PhotoProspector.Services
             }
             catch (Exception e)
             {
-
                 throw e;
             }
             finally
@@ -87,7 +86,66 @@ namespace PhotoProspector.Services
                 oimg.Dispose();
                 bitmap.Dispose();
                 fs.Close();
+            }
+        }
 
+        public void DrawImg(string path, string newpath, int[] intarray, string[] namearray, int facenum)
+        {
+            Image img = new Bitmap(path);
+            Graphics g = Graphics.FromImage(img);
+
+            int x = 0;
+            int y = 0;
+            int w = 0;
+            int h = 0;
+
+            if (namearray.Length != facenum)
+            {
+                namearray = new string[facenum];
+            }
+
+            for (int i = 0; i < facenum; i++)
+            {
+                Pen pen = new Pen(Color.DeepSkyBlue, 2);
+                Brush b = Brushes.DeepSkyBlue;
+
+                if (namearray[i] == "No Match" | namearray[i] == "No face Detected!")
+                {
+                    pen = new Pen(Color.Red, 2);
+                    b = Brushes.Red;
+                }
+
+                x = intarray[4 * i];
+                y = intarray[4 * i + 1];
+                w = intarray[4 * i + 2];
+                h = intarray[4 * i + 3];
+
+                int fontrate = 4;
+                int fontsize = (h * 72) / (fontrate * 96);
+
+                if (x + y + w + h == 0)
+                {
+                    fontsize = 50;
+                }
+                g.DrawRectangle(pen, x, y, w, h);
+
+                int FY = (y + h);
+
+                g.DrawString(namearray[i], new Font("calibri", fontsize), b, new PointF(x, FY));
+            }
+
+            try
+            {
+                img.Save(newpath, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                img.Dispose();
+                g.Dispose();
             }
         }
     }
