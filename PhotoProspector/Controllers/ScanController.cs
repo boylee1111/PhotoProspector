@@ -28,7 +28,6 @@ namespace PhotoProspector.Controllers
         [HttpPost]
         public ActionResult Scan(string filePath)
         {
-
             progress = 0.00f;
 
             PersonListViewModel personlist = new PersonListViewModel();
@@ -66,7 +65,6 @@ namespace PhotoProspector.Controllers
             string result = SyncRequest(imdata);
 
             progress = 40f;
-
 
             if (result == "[]")
             {
@@ -423,7 +421,20 @@ namespace PhotoProspector.Controllers
             //queryString["returnFaceAttributes"] = "{string}";
             var uri = "https://api.projectoxford.ai/face/v1.0/detect?" + queryString;
 
-            byte[] response = client.UploadData(uri, "POST", byteData);
+
+            byte[] response;
+
+            try
+            {
+                response = client.UploadData(uri, "POST", byteData);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+
 
             string result = System.Text.Encoding.UTF8.GetString(response);
 
@@ -458,11 +469,8 @@ namespace PhotoProspector.Controllers
         }
         public static void DrawImg(string path, string newpath, int[] intarray, string[] namearray, int facenum)
         {
-
-
             System.Drawing.Image img = new Bitmap(path);
             Graphics g = Graphics.FromImage(img);
-
 
             int x = 0;
             int y = 0;
@@ -476,7 +484,6 @@ namespace PhotoProspector.Controllers
 
             for (int i = 0; i < facenum; i++)
             {
-
                 Pen pen = new Pen(Color.DeepSkyBlue, 2);
                 Brush b = Brushes.DeepSkyBlue;
 
@@ -486,7 +493,6 @@ namespace PhotoProspector.Controllers
                     b = Brushes.Red;
 
                 }
-
 
                 x = intarray[4 * i];
                 y = intarray[4 * i + 1];
@@ -505,15 +511,11 @@ namespace PhotoProspector.Controllers
                 int FY = (y + h);
 
                 g.DrawString(namearray[i], new Font("calibri", fontsize), b, new PointF(x, FY));
-
             }
-
-
 
             try
             {
                 img.Save(newpath, System.Drawing.Imaging.ImageFormat.Jpeg);
-
             }
             catch (Exception ex)
             {
@@ -521,12 +523,10 @@ namespace PhotoProspector.Controllers
             }
             finally
             {
-
                 img.Dispose();
                 g.Dispose();
 
             }
-
         }
         public static void CutImg(string oPath, string nPaht, int w, int h, string mode)
         {
@@ -545,7 +545,6 @@ namespace PhotoProspector.Controllers
             int oHeight = oimg.Height;
             switch (mode)
             {
-
                 case "HW":
                     if (oimg.Width > oimg.Height)
                     {
@@ -596,24 +595,19 @@ namespace PhotoProspector.Controllers
             }
             catch (Exception e)
             {
-
                 throw e;
             }
             finally
             {
-
                 oimg.Dispose();
                 bitmap.Dispose();
                 fs.Close();
-
             }
         }
         public string VerifyRequest(string faceid1, string faceid2)
         {
-
             string content = "{'faceId1':'" + faceid1 + "','faceId2':'" + faceid2 + "'}";
             //string content = "{'faceId1':'ffd471b8-8b18-4fca-a181-ad76c74c8915','faceId2':'c06a52b3-ce85-4a42-a68e-e4aafc9baf1b'}";
-
 
             WebClient client = new WebClient();
 
@@ -644,11 +638,5 @@ namespace PhotoProspector.Controllers
 
             return response;
         }
-
-
-
-
-
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using PhotoProspector.Helpers;
+using System.Net.Mail;
 using PhotoProspector.Validations;
 
 namespace PhotoProspector.ViewModels
@@ -15,11 +15,25 @@ namespace PhotoProspector.ViewModels
             ErrorMessage = errorMessage;
         }
 
-        [Required]
         public string alias { get; set; }
 
+        [Required]
+        [DisplayName("Email")]
+        public string MSEmail
+        {
+            get
+            {
+                return alias + "@microsoft.com";
+            }
+            set
+            {
+                var mail = new MailAddress(value);
+                alias = mail.User;
+            }
+        }
+
         [DefaultValue("")]
-        [EqualValue(PhotoConstants.cInvitationCode, ErrorMessage = "Invitation Code is not correct.")]
+        [InvidationCodeMatchEmail]
         [DisplayName("Code")]
         public string SignUpCode { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Net.Mail;
 using System.Web;
-using PhotoProspector.Helpers;
 using PhotoProspector.Models;
 using PhotoProspector.Validations;
 
@@ -9,6 +9,24 @@ namespace PhotoProspector.ViewModels
 {
     public class SignUpViewModel : Person
     {
+        [Required]
+        public new HttpPostedFileBase photoPath { get; set; }
+
+        [Required]
+        [DisplayName("Email")]
+        public string MSEmail
+        {
+            get
+            {
+                return alias + "@microsoft.com";
+            }
+            set
+            {
+                var mail = new MailAddress(value);
+                alias = mail.User;
+            }
+        }
+
         public SignUpViewModel() : this(SignUpStatus.Initial, "") { }
 
         public SignUpViewModel(SignUpStatus status = SignUpStatus.Initial, string errorMessage = "")
@@ -18,11 +36,8 @@ namespace PhotoProspector.ViewModels
             base.photoPath = title = specialty = team = favoritesport = "";
         }
 
-        [Required]
-        public new HttpPostedFileBase photoPath { get; set; }
-
         [DefaultValue("")]
-        [EqualValue(PhotoConstants.cInvitationCode, ErrorMessage = "Invitation Code is not correct.")]
+        [InvidationCodeMatchEmail]
         [DisplayName("Code")]
         public string SignUpCode { get; set; }
 

@@ -6,7 +6,6 @@
 
 @Scripts.Render("~/bundles/signup")
 @Styles.Render("~/Content/profile")
-@Styles.Render("~/Content/signup")
 
 <div class="user_container">
     <h1 id="signup_title">Sign You Up!</h1>
@@ -29,42 +28,43 @@
             @Html.ValidationSummary(true)
             <fieldset>
                 <legend><span class="number signup_legend">1</span>Your Basic Info*</legend>
-                @Html.LabelFor(model => model.alias)
-                @Html.EditorFor(model => model.alias, new { id = "alias" })
+                @Html.LabelFor(model => model.MSEmail)
+                @Html.EditorFor(model => model.MSEmail)
+                <button id="get_invitation_code_button" class="get_code_btn sign_up_page_btn" type="button">Get Code</button>
 
                 @Html.LabelFor(model => model.displayname)
-                @Html.EditorFor(model => model.displayname, new { id = "name" })
+                @Html.EditorFor(model => model.displayname)
 
                 @Html.LabelFor(model => model.photoPath)
                 <div id="avatar_upload_editor">
                     <img id="avatar_preview_img" src="~/Content/Images/avatar.png" />
-                    @Html.EditorFor(model => model.photoPath, new { id = "photo", accept = "image/*" })
+                    @Html.EditorFor(model => model.photoPath)
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend><span class="number signup_legend">2</span>Your Profile (Optional)</legend>
                 @Html.LabelFor(model => model.title)
-                @Html.EditorFor(model => model.title, new { id = "title" })
+                @Html.EditorFor(model => model.title)
 
                 @Html.LabelFor(model => model.specialty)
-                @Html.EditorFor(model => model.specialty, new { id = "specialty" })
+                @Html.EditorFor(model => model.specialty)
 
                 @Html.LabelFor(model => model.team)
-                @Html.EditorFor(model => model.team, new { id = "team" })
+                @Html.EditorFor(model => model.team)
 
                 @Html.LabelFor(model => model.favoritesport)
-                @Html.EditorFor(model => model.favoritesport, new { id = "sport" })
+                @Html.EditorFor(model => model.favoritesport)
             </fieldset>
 
             <fieldset>
                 <legend><span class="number signup_legend">3</span>Invitation*</legend>
                 @Html.LabelFor(model => model.SignUpCode)
-                @Html.EditorFor(model => model.SignUpCode, new { id = "code" })
+                @Html.EditorFor(model => model.SignUpCode)
 
                 @Html.ValidationMessageFor(model => model.SignUpCode)
 
-                <p id="invitation_code_note">*Invitation Code is used for signing up for qualified user. If you want to sign yourself up here, please contact <a href="mailto:ericyi@microsoft.com">Eric Yi</a> or <a href="mailto:boyli@microsoft.com">Boyi Li</a>.</p>
+                <p id="invitation_code_note">*Invitation Code is used for signing up for qualified user. Please use your <b>Microsoft email account</b> to retrieve.</p>
             </fieldset>
 
             <button type="submit" id="signup_buton" class="signup">Sign Up</button>
@@ -73,10 +73,4 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(function () {
-        $('body').css('display', 'none');
-        $('body').fadeIn();
-    });
-</script>
 

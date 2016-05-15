@@ -13,7 +13,6 @@ namespace PhotoProspector.Models
         [DisplayName("Avatar")]
         public virtual string photoPath { get; set; }
 
-        [Required]
         [DisplayName("Alias")]
         public virtual string alias { get; set; }
 

@@ -17,13 +17,15 @@ namespace PhotoProspector.Controllers
         private const string UploadImgFolder = "/images";
         private const string UploadPath = "~" + UploadImgFolder;
 
-        private readonly string[] _imageFileExtensions = { ".jpg", ".png", ".jpeg" };
-
         private readonly IImageService imageService;
+        private readonly IFileService fileService;
 
-        public UploadController(IImageService imageService)
+        public UploadController(
+            IImageService imageService,
+            IFileService fileService)
         {
             this.imageService = imageService;
+            this.fileService = fileService;
         }
 
         [HttpGet]
@@ -40,13 +42,13 @@ namespace PhotoProspector.Controllers
                 return Json(new { success = false, errorMessage = "No file uploaded." });
             }
             var file = files.FirstOrDefault();  // get ONE only
-            if (file == null || !IsImage(file))
+            if (file == null || !fileService.IsImage(file))
             {
-                return Json(new { success = false, errorMessage = "File is of wrong format." });
+                return Json(new { success = false, errorMessage = "File is of wrong format. Only image with .jpg, .jpeg or .png files is supported." });
             }
             if (file.ContentLength <= 0)
             {
-                return Json(new { success = false, errorMessage = "File cannot be zero length." });
+                return Json(new { success = false, errorMessage = "File cannot be empty." });
             }
             var webPath = GetTempSavedFilePath(file);
             return Json(new { success = true, fileName = webPath.Replace("/", "\\") }); // success
@@ -95,16 +97,6 @@ namespace PhotoProspector.Controllers
             {
                 return Json(new { success = false, errorMessage = "Unable to upload file.\nERRORINFO: " + ex.Message });
             }
-        }
-
-        private bool IsImage(HttpPostedFileBase file)
-        {
-            if (file == null)
-            {
-                return false;
-            }
-            return file.ContentType.Contains("image") ||
-                _imageFileExtensions.Any(item => file.FileName.EndsWith(item, StringComparison.OrdinalIgnoreCase));
         }
 
         private string GetTempSavedFilePath(HttpPostedFileBase file)

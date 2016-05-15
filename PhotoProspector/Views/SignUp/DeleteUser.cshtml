@@ -29,11 +29,12 @@
             @Html.ValidationSummary(true)
             <fieldset>
                 <legend><span class="number delete_legend">1</span>Basic Info*</legend>
-                @Html.LabelFor(model => model.alias)
-                @Html.EditorFor(model => model.alias, new { id = "alias" })
+                @Html.LabelFor(model => model.MSEmail)
+                @Html.EditorFor(model => model.MSEmail)
+                <button id="forget_invitation_code_button" class="get_code_btn delete_page_btn" type="button">Forget Code</button>
 
                 @Html.LabelFor(model => model.SignUpCode)
-                @Html.EditorFor(model => model.SignUpCode, new { id = "code" })
+                @Html.EditorFor(model => model.SignUpCode)
 
                 @Html.ValidationMessageFor(model => model.SignUpCode)
             </fieldset>
@@ -42,10 +43,3 @@
         }
     </div>
 </div>
-
-<script type="text/javascript">
-    $(function () {
-        $('body').css('display', 'none');
-        $('body').fadeIn();
-    });
-</script>

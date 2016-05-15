@@ -11,3 +11,7 @@ $(function () {
     footer = $('#global_footer');
     maximumContentHeight = maximumBrowserHeight - navBar.height() - footer.height();
 });
+
+function isMicrosoftEmailAccount(emailAddress) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@microsoft\.com$/.test(emailAddress);
+}

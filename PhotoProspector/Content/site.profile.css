@@ -185,13 +185,13 @@ label {
     border-radius: 100%;
 }
 
-.number.signup_legend{
+    .number.signup_legend {
         background-color: #5fcf80;
-}
+    }
 
-.number.delete_legend{
-            background-color: #F44336;
-            }
+    .number.delete_legend {
+        background-color: #F44336;
+    }
 
 @media screen and (min-width: 480px) {
     form {
@@ -225,4 +225,33 @@ label {
 
     .user_message.failure_message {
         color: #b03535;
+    }
+
+#MSEmail {
+    width: 250px;
+}
+
+.get_code_btn {
+    display: inline-block;
+    width: 95px;
+    height: auto;
+    padding: 17px;
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 15px;
+    padding: 15px 0;
+    border: none;
+}
+
+    .get_code_btn.btn_disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+    }
+
+    .get_code_btn.sign_up_page_btn {
+        background-color: #3ac162;
+    }
+
+     .get_code_btn.delete_page_btn {
+        background-color: #F44336;
     }

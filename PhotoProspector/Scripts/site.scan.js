@@ -38,7 +38,7 @@ function eventBinding() {
 
         // set interval used to uplaod progress
         var intervalId = setInterval(function () {
-            $.post(webroot+ 'Scan/ScanProgress', function (progress) {
+            $.post(webroot + 'Scan/ScanProgress', function (progress) {
                 if (progress >= 100) {
                     updateScanProgress();
                     clearInterval(intervalId);
@@ -54,7 +54,7 @@ function eventBinding() {
         // scan handling start
         $.ajax({
             type: 'POST',
-            url: webroot+ 'Scan/Scan',
+            url: webroot + 'Scan/Scan',
             data: {
                 filePath: previewImg.attr('src')
             }
@@ -70,7 +70,7 @@ function eventBinding() {
                 });
             }, 200);
         }).fail(function (e) {
-            alert('Erro: Scan failed');
+            alert('Server is busy now, please try again later.”');
         });
     });
 

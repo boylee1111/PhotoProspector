@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using PhotoProspector.Helpers;
 using PhotoProspector.Services;
 
 namespace PhotoProspector.App_Start
@@ -11,15 +12,15 @@ namespace PhotoProspector.App_Start
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterControllers(typeof(MvcApplication).Assembly)
-                .PropertiesAutowired();
-            //builder.Register(x => new UnitOfWork()).As<IUnitOfWork>().InstancePerRequest();
-            //builder.RegisterType<PersonRepository>().As<IPersonRepository>().InstancePerRequest();
+            builder.RegisterControllers(typeof(MvcApplication).Assembly).PropertiesAutowired();
             builder.RegisterType<ImageService>().As<IImageService>().SingleInstance();
             builder.RegisterType<FileService>().As<IFileService>().SingleInstance();
+            builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
+            builder.RegisterType<MessageService>().As<IMessageService>().SingleInstance();
+            builder.RegisterType<TrainingService>().As<ITrainingService>().SingleInstance();
 
-            var container = builder.Build();
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            PhotoConstants.IoCContainer = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(PhotoConstants.IoCContainer));
         }
     }
 }
