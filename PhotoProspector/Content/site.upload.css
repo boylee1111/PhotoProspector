@@ -8,28 +8,26 @@
 }
 
 #logo-section {
-    left: 0px;
-    right: 0px;
+    position: relative;
+    left: 0;
+    right: 0;
     height: 100%;
     max-height: 100%;
     max-width: 100%;
+    background-color: rgba(0,0,0,0.4);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
-    position: relative;
     overflow: hidden;
     z-index: 0;
-    align-items: center;
-    justify-content: center;
-    display: flex;
 }
 
     #logo-section img.bg_img {
         position: absolute;
-        min-width: 100%;
-        min-height: 100%;
-        flex-shrink: 0;
-        top: 0;
+        margin: auto;
+        min-width:100%;
+        left: -100%;
+        right: -100%;
         z-index: 1;
     }
 
@@ -39,8 +37,8 @@
 
 #logo-section-cover {
     position: absolute;
-    left: 0px;
-    right: 0px;
+    left: 0;
+    right: 0;
     height: 100%;
     max-height: 100%;
     max-width: 100%;
@@ -64,14 +62,13 @@
     width: 100%;
     font-family: "Segoe UI Local","Segoe WP","Segoe UI Web",Tahoma,"Helvetica Neue",Helvetica,"Meiryo UI",Meiryo,"Arial Unicode MS",sans-serif;
     font-size: 50px;
-    text-align: center;
     font-weight: 200;
     color: #fff;
 }
 
 #uploading-section {
-    left: 0px;
-    right: 0px;
+    left: 0;
+    right: 0;
     height: 100%;
     max-height: 100%;
     max-width: 100%;
@@ -118,7 +115,7 @@
 
 #signup-section {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 5px;
 }
 
@@ -126,7 +123,7 @@
     display: inline-block;
     margin: 15px 8px;
     background-color: #7fba00;
-    border-color: #7fba00;
+    border: #7fba00;
     text-decoration: none;
     color: #FFF;
     border-width: 2px;
@@ -154,6 +151,10 @@
         background-color: #70a304;
         border-color: #70a304;
         transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
     }
 
 #signup-link-img {

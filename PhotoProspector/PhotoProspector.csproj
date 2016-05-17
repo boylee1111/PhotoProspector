@@ -238,6 +238,7 @@
     <Compile Include="Services\TrainingService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Validations\EmailWithDomainAttribute.cs" />
     <Compile Include="Validations\EqualValueAttribute.cs" />
     <Compile Include="Validations\InvidationCodeMatchEmailAttribute.cs" />
     <Compile Include="Models\InvitationCodeStatus.cs" />

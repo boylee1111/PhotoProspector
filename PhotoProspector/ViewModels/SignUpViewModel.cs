@@ -13,6 +13,7 @@ namespace PhotoProspector.ViewModels
         public new HttpPostedFileBase photoPath { get; set; }
 
         [Required]
+        [EmailWithDomain("microsoft.com")]
         [DisplayName("Email")]
         public string MSEmail
         {
@@ -22,8 +23,15 @@ namespace PhotoProspector.ViewModels
             }
             set
             {
-                var mail = new MailAddress(value);
-                alias = mail.User;
+                try
+                {
+                    var mail = new MailAddress(value);
+                    alias = mail.User;
+                }
+                catch
+                {
+                    alias = "";
+                }
             }
         }
 
@@ -37,6 +45,7 @@ namespace PhotoProspector.ViewModels
         }
 
         [DefaultValue("")]
+        [Required]
         [InvidationCodeMatchEmail]
         [DisplayName("Code")]
         public string SignUpCode { get; set; }

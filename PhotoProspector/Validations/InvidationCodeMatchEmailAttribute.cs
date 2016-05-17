@@ -28,7 +28,7 @@ namespace PhotoProspector.Validations
             }
             catch
             {
-                return ValidationResult.Success;
+                return new ValidationResult("Email is not correct");
             }
 
             var userService = PhotoConstants.IoCContainer.Resolve<IUserService>();

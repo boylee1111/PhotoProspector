@@ -33,7 +33,7 @@ namespace PhotoProspector.Services
         public bool InsertUserToSQL(string imagepath, Person rperson, string toPath)
         {
 #if DEBUG
-            return (new Random().Next(100) % 2 == 0);
+            return (new Random().Next(100) % 10 != 0);
 #endif
             bool result = false;
 

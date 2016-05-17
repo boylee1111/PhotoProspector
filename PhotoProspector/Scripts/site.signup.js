@@ -39,7 +39,6 @@ function eventBinding() {
             case 'jpeg': case 'jpg': case 'png':
                 break;
             default:
-                $(this).val('');
                 alert("Only image with type .jpeg, .jpg. or .png are accepted");
                 return;
         }
