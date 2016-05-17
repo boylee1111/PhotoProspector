@@ -86,8 +86,21 @@ namespace PhotoProspector.Services
             if (myDs.Tables[0].Rows.Count > 0)
             {
 
-                result = false;
-                return result;
+                SqlCommand delete = new SqlCommand("Delete from FaceWebsiteTable Where Alias = '" + rperson.alias + "'", myConn);
+
+
+                try
+                {
+
+                    delete.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    myConn.Close();
+                    throw ex;
+
+                }
+
             }
             else
             {
@@ -143,10 +156,12 @@ namespace PhotoProspector.Services
             myConn.Open();
 
             SqlCommand delete = new SqlCommand("Delete from FaceWebsiteTable Where Alias = '" + alias + "'", myConn);
+            SqlCommand deletecode = new SqlCommand("Delete from InvitationCode Where Alias = '" + alias + "'", myConn);
 
             try
             {
                 delete.ExecuteNonQuery();
+                deletecode.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -169,7 +184,7 @@ namespace PhotoProspector.Services
             SqlConnection myConn = new SqlConnection(myStr);
             myConn.Open();
 
-            string query = "select * from FaceWebsiteTable WHERE alias='" + alias + "'";
+            string query = "select * from InvitationCode WHERE alias='" + alias + "'";
 
             DataSet myDs = new DataSet();
             SqlDataAdapter myDa = new SqlDataAdapter(query, myConn);
