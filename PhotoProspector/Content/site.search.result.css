@@ -1,0 +1,61 @@
+﻿body {
+    background-color: #f4f7f8;
+}
+
+#waterfall_img_container {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#result_intro {
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    font-family: 'Nunito', sans-serif;
+    color: #384047;
+    text-align: center;
+}
+
+.waterfall_item {
+    margin: 10px 20px;
+    background-color: #ffffff;
+    border: none;
+    z-index: 1;
+}
+
+    .waterfall_item .waterfall_item_href {
+        text-decoration: none;
+        outline: none;
+    }
+
+    .waterfall_item:hover {
+        z-index: 100 !important;
+    }
+
+    .waterfall_item .waterfall_item_img {
+        width: 300px;
+        transition: color .2s ease-in-out, transform .2s ease-in-out;
+        -webkit-transition: color .2s ease-in-out, transform .2s ease-in-out;
+        -moz-transition: color .2s ease-in-out, transform .2s ease-in-out;
+        -ms-transition: color .2s ease-in-out, transform .2s ease-in-out;
+        -o-transition: color .2s ease-in-out, transform .2s ease-in-out;
+    }
+
+        .waterfall_item .waterfall_item_img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+        }
+
+#imgLoad {
+    position: fixed;
+    bottom: 0;
+    left: 40%;
+    display: none;
+}
+
+.fancybox-opened {
+    z-index: 99999 !important;
+}

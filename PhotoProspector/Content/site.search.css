@@ -1,0 +1,158 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,300);
+
+body {
+    background-color: #f4f7f8;
+}
+
+h1 {
+    margin: 45px 0 50px 0;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+label {
+    font-weight: normal;
+    font-size: 20px;
+    color: #0f3c4b;
+}
+
+svg {
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+    svg:not(:root) {
+        overflow: hidden;
+    }
+
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 300px;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 30px;
+    max-width: 100%;
+}
+
+#search_condition {
+    text-align: center;
+    margin: 0 auto;
+    width: 700px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+#files_label:hover,
+#files_label:focus {
+    color: #39bfd3;
+}
+
+#img_upload_box {
+    height: 300px;
+}
+
+#box__uploading {
+    display: none;
+    font-family: Roboto,sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    color: rgb(15, 60, 75);
+    font-weight: 400;
+    line-height: none;
+}
+
+.box {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    font-size: 1.25rem;
+    background-color: #c8dadf;
+    position: relative;
+    padding: 60px 40px;
+    display: block;
+}
+
+    .box .box__icon {
+        width: 100%;
+        height: 80px;
+        fill: #92b0b3;
+        display: block;
+        margin-bottom: 40px;
+    }
+
+    .box .box__file {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+        .box .box__file + label {
+            max-width: 80%;
+            text-overflow: ellipsis;
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: baseline;
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+.box__button {
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #39bfd3;
+    border: 1px solid #39bff3;
+}
+
+    .box__button:hover,
+    .box__button:focus {
+        background-color: #39bff3;
+        opacity: 0.75;
+    }
+
+.input-validation-error {
+    background: url("Images/invalid.png") no-repeat 98% center !important;
+    box-shadow: 0 0 5px #d45252 !important;
+    border-color: #b03535 !important;
+}

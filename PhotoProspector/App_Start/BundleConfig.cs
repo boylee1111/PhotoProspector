@@ -14,7 +14,8 @@ namespace PhotoProspector
         public static void RegisterScriptBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-               "~/Scripts/jquery-{version}.js"));
+               "~/Scripts/jquery-{version}.js",
+               "~/Scripts/imagesloaded.pkgd.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"));
@@ -33,6 +34,12 @@ namespace PhotoProspector
 
             bundles.Add(new ScriptBundle("~/bundles/loadgo").Include(
                 "~/Scripts/LoadGo/loadgo.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/masonry").Include(
+                "~/Scripts/Masonry/masonry.pkgd.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/fancybox").Include(
+                "~/Scripts/FancyBox/jquery.fancybox.pack.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/site").Include(
                 "~/Scripts/site.js"));
@@ -58,6 +65,12 @@ namespace PhotoProspector
 
             bundles.Add(new ScriptBundle("~/bundles/deleteuser").Include(
                 "~/Scripts/site.delete.user.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/search").Include(
+                "~/Scripts/site.search.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/searchresult").Include(
+                "~/Scripts/site.search.result.js"));
         }
 
         public static void RegisterStyleBundles(BundleCollection bundles)
@@ -67,6 +80,9 @@ namespace PhotoProspector
                 "~/Content/site.css",
                 "~/Content/corner_ribbon.css",
                 "~/Content/vicons-font.css"));
+
+            bundles.Add(new StyleBundle("~/Content/fancybox").Include(
+                "~/Content/FancyBox/jquery.fancybox.css"));
 
             bundles.Add(new StyleBundle("~/Content/custombutton").Include(
                 "~/Content/custom_button.css"));
@@ -91,6 +107,12 @@ namespace PhotoProspector
 
             bundles.Add(new StyleBundle("~/Content/profile").Include(
                 "~/Content/site.profile.css"));
+
+            bundles.Add(new StyleBundle("~/Content/search").Include(
+                "~/Content/site.search.css"));
+
+            bundles.Add(new StyleBundle("~/Content/searchresult").Include(
+                "~/Content/site.search.result.css"));
         }
     }
 }

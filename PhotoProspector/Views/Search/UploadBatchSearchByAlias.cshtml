@@ -1,0 +1,37 @@
+﻿@model PhotoProspector.ViewModels.SearchResultViewModel
+
+@Styles.Render("~/Content/searchresult")
+@Styles.Render("~/Content/fancybox")
+@Scripts.Render("~/bundles/masonry")
+@Scripts.Render("~/bundles/fancybox")
+@Scripts.Render("~/bundles/searchresult")
+
+@{
+    if (!(Model == null || Model.Images.FirstOrDefault() == null || Model.Alias == null))
+    {
+        <p id="result_intro">Below are all the photos have <strong>@Model.Alias</strong></p>
+    }
+}
+
+<div id="waterfall_img_container" class="transitions-enabled infinite-scroll clearfix waterfall_grid">
+    @{
+        if (Model == null || Model.Images.FirstOrDefault() == null || Model.Alias == null)
+        {
+            <p>No Image found Match to @Model.Alias</p>
+        }
+        else
+        {
+            foreach (var imageFile in Model.Images.ToList())
+            {
+                <div class="waterfall_item">
+                    <a href="@imageFile.Url" class="fancybox waterfall_item_href">
+                        <img class="waterfall_item_img" src="@imageFile.Url" />
+                    </a>
+                </div>
+            }
+        }
+    }
+</div>
+<div id="imgLoad">
+    <img src="http://i.imgur.com/6RMhx.gif" />
+</div>

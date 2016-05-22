@@ -220,6 +220,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ScanController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
@@ -243,7 +244,9 @@
     <Compile Include="Validations\InvidationCodeMatchEmailAttribute.cs" />
     <Compile Include="Models\InvitationCodeStatus.cs" />
     <Compile Include="ViewModels\DeleteUserViewModel.cs" />
+    <Compile Include="ViewModels\ImageFileViewModel.cs" />
     <Compile Include="ViewModels\PersonListViewModel.cs" />
+    <Compile Include="ViewModels\SearchResultViewModel.cs" />
     <Compile Include="ViewModels\SignUpViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -251,6 +254,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\corner_ribbon.css" />
     <Content Include="Content\custom_button.css" />
+    <Content Include="Content\FancyBox\jquery.fancybox.css" />
     <Content Include="Content\Fonts\codropsicons\codropsicons.svg" />
     <Content Include="Content\Fonts\codropsicons\license.txt" />
     <Content Include="Content\Fonts\vicons\vicons.svg" />
@@ -274,6 +278,8 @@
     <Content Include="Content\site.scan.css" />
     <Content Include="Content\site.scan.result.css" />
     <Content Include="Content\site.scan.result.table.css" />
+    <Content Include="Content\site.search.css" />
+    <Content Include="Content\site.search.result.css" />
     <Content Include="Content\Uploading\uploading.css" />
     <Content Include="Content\site.upload.css" />
     <Content Include="Content\vicons-font.css" />
@@ -302,6 +308,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\FancyBox\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\imagesloaded.pkgd.min.js" />
     <Content Include="Scripts\jquery-2.2.1.js" />
     <Content Include="Scripts\jquery-2.2.1.min.js" />
     <Content Include="Scripts\jquery.form.js" />
@@ -323,6 +331,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\LoadGo\loadgo.js" />
     <Content Include="Scripts\LoadGo\loadgo.min.js" />
+    <Content Include="Scripts\Masonry\masonry.pkgd.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
@@ -333,6 +342,8 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\site.scan.js" />
     <Content Include="Scripts\site.scan.result.js" />
+    <Content Include="Scripts\site.search.js" />
+    <Content Include="Scripts\site.search.result.js" />
     <Content Include="Scripts\site.signup.js" />
     <Content Include="Scripts\site.upload.js" />
     <Content Include="Scripts\_references.js" />
@@ -357,6 +368,8 @@
     <Content Include="Views\SignUp\Index.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\SignUp\DeleteUser.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Search\UploadBatchSearchByAlias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
