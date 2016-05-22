@@ -255,6 +255,8 @@
     <Content Include="Content\Fonts\codropsicons\license.txt" />
     <Content Include="Content\Fonts\vicons\vicons.svg" />
     <Content Include="Content\Images\avatar.png" />
+    <Content Include="Content\Images\boyli.jpg" />
+    <Content Include="Content\Images\ericyi.jpg" />
     <Content Include="Content\Images\home-1.jpg" />
     <Content Include="Content\Images\home-2.jpg" />
     <Content Include="Content\Images\home-3.jpg" />
