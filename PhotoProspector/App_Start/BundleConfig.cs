@@ -89,7 +89,8 @@ namespace PhotoProspector
 
             bundles.Add(new StyleBundle("~/Content/upload").Include(
                 "~/Content/site.upload.css",
-                "~/Content/site.upload.button.css"));
+                "~/Content/site.upload.button.css",
+                "~/Content/site.upload.menu.css"));
 
             bundles.Add(new StyleBundle("~/Content/Control/uploading").Include(
                 "~/Content/Uploading/uploading.css"));

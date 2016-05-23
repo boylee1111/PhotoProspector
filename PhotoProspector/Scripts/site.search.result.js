@@ -1,16 +1,25 @@
 ﻿'use strict';
 
-var imageContainer;
+var imageContainer,
+    imgLoadControl;
 
 $(function () {
     imageContainer = $('#waterfall_img_container');
+    imgLoadControl = $('#img_load');
+
+    $('body').css('display', 'none');
+    $('body').fadeIn();
 
     imageContainer.imagesLoaded(function () {
-        imageContainer.masonry({
-            itemSelector: '.waterfall_item',
-            isAnimated: true,
-            isFitWidth: true
-        });
+        setTimeout(function () {
+            imgLoadControl.css('display', 'none');
+            imageContainer.fadeIn();
+            imageContainer.masonry({
+                itemSelector: '.waterfall_item',
+                isAnimated: true,
+                isFitWidth: true
+            });
+        }, 1500);
     });
 
     $('.fancybox').fancybox({
@@ -28,7 +37,4 @@ $(function () {
             },
         }
     });
-
-    $('body').css('display', 'none');
-    $('body').fadeIn();
 });

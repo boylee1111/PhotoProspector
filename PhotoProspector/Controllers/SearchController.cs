@@ -26,7 +26,7 @@ namespace PhotoProspector.Controllers
         {
             try
             {
-                var savedDirectoryRootPath = SearchResultImagePath + alias + "/";
+                var savedDirectoryRootPath = SearchResultImagePath + alias + "_" + DateTime.Now.ToString("yyyyMMddHHmmssffff") + "/";
                 var savedDirectoryPath = Server.MapPath("~" + savedDirectoryRootPath);
 
                 // Save File

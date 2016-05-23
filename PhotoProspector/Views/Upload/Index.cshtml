@@ -53,11 +53,13 @@
                 <div id="upload-status"></div>
             </div>
             <div class="cover-middle"></div>
-            <div id="signup-section">
-                <a id="signup-link" href="@Url.Action("Index", "SignUp")">
-                    <spam id="signup-link-content">Sign Up</spam>
-                    <img id="signup-link-img" src="~/Content/Images/signup_icon.png" ? />
-                </a>
+            <div id="menu_container">
+                <input type="checkbox" id="menu_opener_id" class="menu_opener">
+                <label for="menu_opener_id" class="menu_opener_label"></label>
+                <div class="barre_hamburger"></div>
+                <a href="@Url.Action("Index", "SignUp")" class="link_menu_signup link_general"></a>
+                <a href="@Url.Action("Index", "Search")" class="link_menu_search link_general"></a>
+                </input>
             </div>
         </div>
         <div id="photo-crop-box" class="hidden">

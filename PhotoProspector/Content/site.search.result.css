@@ -5,6 +5,7 @@
 #waterfall_img_container {
     text-align: center;
     margin: 0 auto;
+    display: none;
 }
 
 #result_intro {
@@ -16,7 +17,7 @@
 }
 
 .waterfall_item {
-    margin: 10px 20px;
+    margin: 5px 15px;
     background-color: #ffffff;
     border: none;
     z-index: 1;
@@ -32,7 +33,7 @@
     }
 
     .waterfall_item .waterfall_item_img {
-        width: 300px;
+        width: 200px;
         transition: color .2s ease-in-out, transform .2s ease-in-out;
         -webkit-transition: color .2s ease-in-out, transform .2s ease-in-out;
         -moz-transition: color .2s ease-in-out, transform .2s ease-in-out;
@@ -49,13 +50,60 @@
             -o-transform: scale(1.1);
         }
 
-#imgLoad {
-    position: fixed;
+#img_load {
+    margin: 50px auto 50px;
     bottom: 0;
-    left: 40%;
-    display: none;
+    text-align: center;
+}
+
+#img_load img{
+    height: 100px;
 }
 
 .fancybox-opened {
     z-index: 99999 !important;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
 }
