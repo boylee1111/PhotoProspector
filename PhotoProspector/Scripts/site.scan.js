@@ -20,7 +20,9 @@ $(function () {
     eventBinding();
 
     $('body').css('display', 'none');
-    initScanPreviewWindowResize();
+    if (!isMobile()) {
+        //initScanPreviewWindowResize();
+    }
     $('body').fadeIn();
 });
 

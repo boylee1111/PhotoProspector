@@ -35,7 +35,7 @@ a:focus {
 }
 
 .corner-ribbon a {
-    z-index: 500!important;
+    z-index: 500 !important;
     color: white;
     font-size: 14px;
 }
@@ -88,7 +88,7 @@ a:focus {
 }
 
 #ms-logo-img {
-    margin: 12px 150px;
+    margin: 12px 50px;
     height: 100px;
 }
 
@@ -101,3 +101,42 @@ footer {
     footer p {
         font-size: 14px;
     }
+
+@media screen and (max-device-width: 640px) {
+    body {
+        padding-top: 85px;
+        height: 80%;
+    }
+
+    .corner-ribbon a {
+        font-size: 10px;
+    }
+
+    #ms-logo-img {
+        display: none;
+    }
+
+    .navbar {
+        height: 85px;
+    }
+
+        .navbar .navbar-header .navbar-headline .navbar-brand {
+            font-size: 25px;
+            padding-top: 20px;
+            margin-bottom: 0;
+        }
+
+        .navbar .navbar-header .navbar-subheadline {
+            font-size: 8px;
+        }
+
+    footer {
+        width: 100%;
+        text-align: center;
+        height: 10px;
+    }
+
+        footer p {
+            font-size: 10px;
+        }
+}

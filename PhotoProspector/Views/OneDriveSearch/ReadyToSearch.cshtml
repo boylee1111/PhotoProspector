@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Ready To Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/onedrivesearch")
+@Styles.Render("~/Content/onedrivesearch")
+
+<h1>ReadyToSearch</h1>
+
+<div id="onedrive_auth_container">
+    <div class="onedrive_auth_search_intro">
+        <p class="intro">
+            <strong>Authentication succeed.</strong> Type into the alias and start searching from OneDrive files.
+        </p>
+    </div>
+    <div id="onedrive_search_contiditon_container">
+        <div id="onedrive_search_condition">
+            <label id="alias_label" for="alias_input">Alias*</label>
+            <input id="alias_input" name="alias_input" type="text" maxlength="25" />
+
+            <button class="box__button" id="onedrive_search_submit_button">Search</button>
+            @*<a class="box__button logout" href="@Url.Action("SignOut", "OneDriveSearch")">Log Out</a>*@
+        </div>
+    </div>
+</div>

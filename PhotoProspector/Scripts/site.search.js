@@ -80,7 +80,10 @@ function uploadAndSearch() {
             processData: false,
             data: formData,
             success: function (data) {
-                searchContainer.html(data);
+                searchContainer.fadeOut(function () { // result transition animation
+                    searchContainer.html(data);
+                    searchContainer.fadeIn();
+                });
             },
             error: function (xhr, textStatus, errorThrown) {
                 alert(xhr.responseText);

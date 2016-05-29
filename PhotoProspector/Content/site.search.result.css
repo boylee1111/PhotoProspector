@@ -56,9 +56,9 @@
     text-align: center;
 }
 
-#img_load img{
-    height: 100px;
-}
+    #img_load img {
+        height: 100px;
+    }
 
 .fancybox-opened {
     z-index: 99999 !important;

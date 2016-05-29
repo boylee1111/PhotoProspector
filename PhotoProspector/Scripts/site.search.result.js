@@ -7,9 +7,6 @@ $(function () {
     imageContainer = $('#waterfall_img_container');
     imgLoadControl = $('#img_load');
 
-    $('body').css('display', 'none');
-    $('body').fadeIn();
-
     imageContainer.imagesLoaded(function () {
         setTimeout(function () {
             imgLoadControl.css('display', 'none');

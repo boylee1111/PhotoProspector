@@ -15,9 +15,11 @@ $(function () {
 
     console.log(resetOptionContainer.height());
     eventBinding();
-    initScanResultWindowResize();
+    if (!isMobile()) {
+        //initScanResultWindowResize();
+    }
 
-    kendoToolTip();
+    //kendoToolTip();
 });
 
 function eventBinding() {

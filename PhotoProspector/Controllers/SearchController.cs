@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -27,6 +25,7 @@ namespace PhotoProspector.Controllers
             try
             {
                 var savedDirectoryRootPath = SearchResultImagePath + alias + "_" + DateTime.Now.ToString("yyyyMMddHHmmssffff") + "/";
+                savedDirectoryRootPath = SearchResultImagePath + "test/";
                 var savedDirectoryPath = Server.MapPath("~" + savedDirectoryRootPath);
 
                 // Save File
@@ -62,26 +61,9 @@ namespace PhotoProspector.Controllers
                     }
                 }
 
-                if (!Directory.Exists(savedDirectoryPath))
-                {
-                    throw new IOException();
-                }
+                var searchResultViewModel = new SearchResultViewModel(alias, savedDirectoryPath, savedDirectoryRootPath);
 
-                // Create ViewModel
-                var imageFiles = new List<ImageFileViewModel>();
-                Directory.GetFiles(savedDirectoryPath).ToList().ForEach(f =>
-                {
-                    var fileNameWithoutPath = Path.GetFileName(f);
-                    var imagePathUrl = savedDirectoryRootPath + fileNameWithoutPath;
-                    var imageFileModel = new ImageFileViewModel(imagePathUrl, fileNameWithoutPath);
-                    imageFiles.Add(imageFileModel);
-                });
-
-                var searchResultViewModel = new SearchResultViewModel();
-                searchResultViewModel.Alias = alias;
-                searchResultViewModel.Images = imageFiles;
-
-                return PartialView(searchResultViewModel);
+                return PartialView("SearchResultByAlias", searchResultViewModel);
             }
             catch
             {

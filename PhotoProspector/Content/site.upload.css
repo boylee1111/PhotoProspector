@@ -25,7 +25,7 @@
     #logo-section img.bg_img {
         position: absolute;
         margin: auto;
-        min-width:100%;
+        min-width: 100%;
         left: -100%;
         right: -100%;
         z-index: 1;
@@ -162,4 +162,25 @@
     margin-bottom: 2px;
     width: 18px;
     height: 18px;
+}
+
+
+@media screen and (max-device-height: 550px) {
+    #cover-description {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-device-width: 950px) {
+    #cover-top {
+        height: 10%;
+    }
+
+    #cover-description {
+        font-size: 22px!important;
+    }
+
+    #upload-control {
+        display: none !important;
+    }
 }

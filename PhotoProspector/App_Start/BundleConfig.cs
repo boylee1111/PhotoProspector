@@ -69,6 +69,9 @@ namespace PhotoProspector
             bundles.Add(new ScriptBundle("~/bundles/search").Include(
                 "~/Scripts/site.search.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/onedrivesearch").Include(
+                "~/Scripts/site.onedrive.search.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/searchresult").Include(
                 "~/Scripts/site.search.result.js"));
         }
@@ -111,6 +114,9 @@ namespace PhotoProspector
 
             bundles.Add(new StyleBundle("~/Content/search").Include(
                 "~/Content/site.search.css"));
+
+            bundles.Add(new StyleBundle("~/Content/onedrivesearch").Include(
+                "~/Content/site.onedrive.search.css"));
 
             bundles.Add(new StyleBundle("~/Content/searchresult").Include(
                 "~/Content/site.search.result.css"));

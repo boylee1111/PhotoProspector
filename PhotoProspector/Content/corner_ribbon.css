@@ -101,3 +101,13 @@
     .corner-ribbon.yellow {
         background: #ec0;
     }
+
+@media screen and (max-device-width: 640px) {
+    .corner-ribbon {
+        width: 160px;
+        height:35px;
+        top:10px!important;
+        right: -55px!important;
+        line-height: 30px;
+    }
+}

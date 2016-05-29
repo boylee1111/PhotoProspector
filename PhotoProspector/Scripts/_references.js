@@ -16,6 +16,7 @@
 /// <reference path="site.about.js" />
 /// <reference path="site.delete.user.js" />
 /// <reference path="site.js" />
+/// <reference path="site.onedrive.search.js" />
 /// <reference path="site.scan.js" />
 /// <reference path="site.scan.result.js" />
 /// <reference path="site.search.js" />

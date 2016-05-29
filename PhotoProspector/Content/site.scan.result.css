@@ -9,3 +9,15 @@
     max-height: 600px;
     padding-top: 40px;
 }
+
+@media screen and (max-device-width: 640px) {
+    #scan_result_img {
+        max-width: 280px !important;
+    }
+}
+
+@media screen and (max-device-width: 480px) {
+    #scan_result_img {
+        max-width: 200px !important;
+    }
+}

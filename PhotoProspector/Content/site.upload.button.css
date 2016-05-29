@@ -95,3 +95,11 @@
     height: 100%;
     fill: #f1e5e6;
 }
+
+@media screen and (max-device-width: 640px) {
+    .inputfile-circle + label figure {
+        width: 90px !important;
+        height: 90px !important;
+        padding: 20px !important;
+    }
+}

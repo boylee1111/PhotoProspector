@@ -241,3 +241,17 @@
         opacity: 0;
     }
 }
+
+@media screen and (max-device-width: 640px) {
+    .loading {
+    position: relative;
+    margin: -60px 0 0 -45px;
+    width: 100px;
+    height: 100px;
+}
+
+    .loading:after {
+          width: 140%;
+        height: 140%;
+    }
+}

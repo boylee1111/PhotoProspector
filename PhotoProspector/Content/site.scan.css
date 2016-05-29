@@ -45,3 +45,15 @@ h3 {
     line-height: 48px;
     margin: 30px 0;
 }
+
+@media screen and (max-device-width: 640px) {
+    #preview_img {
+        max-width: 280px !important;
+    }
+}
+
+@media screen and (max-device-width: 480px) {
+    #preview_img {
+        max-width: 200px !important;
+    }
+}

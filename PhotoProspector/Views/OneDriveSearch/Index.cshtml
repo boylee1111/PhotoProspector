@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "OneDrive Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/onedrivesearch")
+@Styles.Render("~/Content/onedrivesearch")
+
+<h1>OneDrive Search</h1>
+
+<div id="onedrive_auth_container">
+    <div class="onedrive_auth_search_intro">
+        <p class="intro">
+            To use the OneDrive Search function, your permision approval of OneDrive files usage is required. Please choose you OneDrive type and finish the authentication first.
+        </p>
+    </div>
+    <p>
+        <a class="box__button" href="@Url.Action("SignInPersonal", "OneDriveSearch")">OneDrive Personal</a>
+        <a class="box__button disabled" href="@Url.Action("SignInBusiness", "OneDriveSearch")">OneDrive for Business</a>
+    </p>
+</div>
+
+<script>
+    $('body').css('display', 'none');
+    $('body').fadeIn();
+</script>
