@@ -15,7 +15,11 @@
     }
 
     .menu_opener:checked ~ .link_menu_search {
-        top: 130px;
+        top: 130px; /* 70px + 60px */
+    }
+
+    .menu_opener:checked ~ .link_menu_onedrive_search {
+        top: 190px; /* 70px + 60px * 2 */
     }
 
     .menu_opener:checked ~ .barre_hamburger {
@@ -128,19 +132,27 @@
     background: url("/Content/Images/search_menu_icon.png") #81c41d no-repeat center center;
 }
 
+.link_menu_onedrive_search {
+    background: url("/Content/Images/onedrive_search_menu_icon.png") #81c41d no-repeat center center;
+}
+
 @media screen and (max-device-width: 640px) {
     #menu_container {
-    position: absolute;
-    margin-right: 40px;
-    margin-top: 20px;
-}
+        position: absolute;
+        margin-right: 40px;
+        margin-top: 20px;
+    }
 
     .menu_opener:checked ~ .link_menu_signup {
         top: 40px;
     }
 
     .menu_opener:checked ~ .link_menu_search {
-        top: 70px;
+        top: 70px; /* 40px + 30px */
+    }
+
+    .menu_opener:checked ~ .link_menu_onedrive_search {
+        top: 100px; /* 40px + 30px * 2 */
     }
 
     .menu_opener:checked ~ .barre_hamburger {

@@ -290,6 +290,7 @@
     <Content Include="Content\Images\invalid.png" />
     <Content Include="Content\Images\loading_icon.png" />
     <Content Include="Content\Images\ms-logo.jpg" />
+    <Content Include="Content\Images\onedrive_search_menu_icon.png" />
     <Content Include="Content\Images\search_menu_icon.png" />
     <Content Include="Content\Images\signup_icon.png" />
     <Content Include="Content\Images\sign_up_menu_icon.png" />
