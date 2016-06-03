@@ -20,6 +20,12 @@ var maxSizeInBytes = maxSizeAllowed * 1024 * 1024;
 var keepUploadBox = false;  // Remove if you want to keep the upload box
 
 $(function () {
+    var mq = window.matchMedia('(max-width: 640px)');
+    if (mq.matches) {
+        var backgroundImages = $('.bg_img');
+        backgroundImages.attr('src', '/Content/Images/home-mobile.jpg');
+    }
+
     if (typeof $('#photo-upload-form') !== undefined) {
         form_input_file = $('#photo-upload-form input:file');
         upload_form = $('#photo-upload-form');

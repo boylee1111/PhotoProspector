@@ -286,6 +286,7 @@
     <Content Include="Content\Images\home-1.jpg" />
     <Content Include="Content\Images\home-2.jpg" />
     <Content Include="Content\Images\home-3.jpg" />
+    <Content Include="Content\Images\home-mobile.jpg" />
     <Content Include="Content\Images\home.jpg" />
     <Content Include="Content\Images\invalid.png" />
     <Content Include="Content\Images\loading_icon.png" />

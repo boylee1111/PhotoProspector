@@ -171,16 +171,25 @@
     }
 }
 
-@media screen and (max-device-width: 950px) {
+@media screen and (max-device-width: 640px) {
     #cover-top {
         height: 10%;
     }
 
     #cover-description {
-        font-size: 22px!important;
+        font-size: 22px !important;
     }
 
     #upload-control {
         display: none !important;
+    }
+
+
+    #logo-section img.bg_img {
+        position: absolute;
+        height: 100%;
+        left: -100%;
+        right: -100%;
+        z-index: 1;
     }
 }

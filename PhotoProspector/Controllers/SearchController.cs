@@ -28,6 +28,8 @@ namespace PhotoProspector.Controllers
                 savedDirectoryRootPath = SearchResultImagePath + "test/";
                 var savedDirectoryPath = Server.MapPath("~" + savedDirectoryRootPath);
 
+                var uploadPath = Server.MapPath("~" + SearchResultImagePath + "upload/");
+
                 // Save File
                 foreach (string file in Request.Files)
                 {
@@ -36,9 +38,9 @@ namespace PhotoProspector.Controllers
                     {
                         var filename = Path.GetFileName(file);
 
-                        if (Directory.Exists(savedDirectoryPath) == false)
+                        if (Directory.Exists(uploadPath) == false)
                         {
-                            Directory.CreateDirectory(savedDirectoryPath);
+                            Directory.CreateDirectory(uploadPath);
                         }
                         var img = new WebImage(fileContent.InputStream);
                         var ratio = img.Height / (double)img.Width;
@@ -51,7 +53,7 @@ namespace PhotoProspector.Controllers
                             img.Resize((int)(UploadScreenHeight / ratio), UploadScreenHeight);
                         }
 
-                        var fullFileName = Path.Combine(savedDirectoryPath, filename);
+                        var fullFileName = Path.Combine(uploadPath, filename);
                         if (System.IO.File.Exists(fullFileName))
                         {
                             System.IO.File.Decrypt(fullFileName);
