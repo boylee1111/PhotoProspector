@@ -151,7 +151,7 @@ function savePhoto() {
         }
     }).fail(function (jqXHR, textStatus, error) {
         $('body').html(jqXHR.responseText);
-        alert(jqXHR.responseText);
+        //alert(jqXHR.responseText);
         alert('Error: Cannot upload photo at this time. We will take you back.');
         window.location.href(webroot);
     });

@@ -86,7 +86,7 @@ function uploadAndSearch() {
                 });
             },
             error: function (xhr, textStatus, errorThrown) {
-                alert(xhr.responseText);
+                //alert(xhr.responseText);
                 alert('Server is busy now, please try again later.”');
             }
         });

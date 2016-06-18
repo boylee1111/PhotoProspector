@@ -17,6 +17,8 @@ namespace PhotoProspector.Controllers
 
         private readonly IOneDrivePhotoService oneDrivePhotoService;
 
+        readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public OneDriveSearchController(IOneDrivePhotoService oneDrivePhotoService)
         {
             this.oneDrivePhotoService = oneDrivePhotoService;
@@ -78,7 +80,9 @@ namespace PhotoProspector.Controllers
         [HttpGet]
         public ActionResult SignInPersonal()
         {
-            return Redirect(oneDrivePhotoService.GenerateOneDrivePersonalAuthUrl(RedirectUri));
+            var urlString = oneDrivePhotoService.GenerateOneDrivePersonalAuthUrl(RedirectUri);
+            logger.Info("urlString is: " + urlString);
+            return Redirect(urlString);
         }
 
         [HttpGet]
@@ -96,6 +100,7 @@ namespace PhotoProspector.Controllers
 
         public async Task<ActionResult> Redirect(string code, string state)
         {
+            logger.Info("Redirect Start...");
             OAuthHelper helper;
             try
             {
@@ -108,6 +113,7 @@ namespace PhotoProspector.Controllers
 
             string discoveryResource = "https://api.office.com/discovery/";
             var token = await helper.RedeemAuthorizationCodeAsync(code, discoveryResource);
+            logger.Info("Token get: " + token.ToString());
             if (null == token)
             {
                 return Redirect(Url.Action("Index", "OneDriveSearch", new { isAuthSucceed = false, errorMsg = "Invalid response from token service. Unable to login. Please try again later." }));
@@ -115,6 +121,7 @@ namespace PhotoProspector.Controllers
 
             OneDriveUser user = new OneDriveUser(token, helper, discoveryResource);
             user.SetResponseCookie(this.Response);
+            logger.Info("Set user cookie successful.");
 
             return Redirect(Url.Action("Index", "OneDriveSearch", new { isAuthSucceed = true }));
         }

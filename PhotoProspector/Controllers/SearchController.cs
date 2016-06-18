@@ -1,7 +1,5 @@
 ﻿using System;
-using System.IO;
 using System.Net;
-using System.Web.Helpers;
 using System.Web.Mvc;
 using PhotoProspector.ViewModels;
 
@@ -31,37 +29,37 @@ namespace PhotoProspector.Controllers
                 var uploadPath = Server.MapPath("~" + SearchResultImagePath + "upload/");
 
                 // Save File
-                foreach (string file in Request.Files)
-                {
-                    var fileContent = Request.Files[file];
-                    if (fileContent != null && fileContent.ContentLength > 0)
-                    {
-                        var filename = Path.GetFileName(file);
+                //foreach (string file in Request.Files)
+                //{
+                //    var fileContent = Request.Files[file];
+                //    if (fileContent != null && fileContent.ContentLength > 0)
+                //    {
+                //        var filename = Path.GetFileName(file);
 
-                        if (Directory.Exists(uploadPath) == false)
-                        {
-                            Directory.CreateDirectory(uploadPath);
-                        }
-                        var img = new WebImage(fileContent.InputStream);
-                        var ratio = img.Height / (double)img.Width;
-                        if (img.Width > UploadScreenWidth)
-                        {
-                            img.Resize(UploadScreenWidth, (int)(UploadScreenWidth * ratio));
-                        }
-                        if (img.Height > UploadScreenHeight)
-                        {
-                            img.Resize((int)(UploadScreenHeight / ratio), UploadScreenHeight);
-                        }
+                //        if (Directory.Exists(uploadPath) == false)
+                //        {
+                //            Directory.CreateDirectory(uploadPath);
+                //        }
+                //        var img = new WebImage(fileContent.InputStream);
+                //        var ratio = img.Height / (double)img.Width;
+                //        if (img.Width > UploadScreenWidth)
+                //        {
+                //            img.Resize(UploadScreenWidth, (int)(UploadScreenWidth * ratio));
+                //        }
+                //        if (img.Height > UploadScreenHeight)
+                //        {
+                //            img.Resize((int)(UploadScreenHeight / ratio), UploadScreenHeight);
+                //        }
 
-                        var fullFileName = Path.Combine(uploadPath, filename);
-                        if (System.IO.File.Exists(fullFileName))
-                        {
-                            System.IO.File.Decrypt(fullFileName);
-                        }
+                //        var fullFileName = Path.Combine(uploadPath, filename);
+                //        if (System.IO.File.Exists(fullFileName))
+                //        {
+                //            System.IO.File.Decrypt(fullFileName);
+                //        }
 
-                        img.Save(fullFileName);
-                    }
-                }
+                //        img.Save(fullFileName);
+                //    }
+                //}
 
                 var searchResultViewModel = new SearchResultViewModel(alias, savedDirectoryPath, savedDirectoryRootPath);
 
