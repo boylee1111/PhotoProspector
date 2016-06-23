@@ -1,0 +1,101 @@
+﻿@model PhotoProspector.Models.Person
+
+@Styles.Render("~/Content/scanresultdetail")
+@Scripts.Render("~/bundles/scanresultdetail")
+
+<div class="modal-body">
+    <div id="detail_info_header">
+        <h2>@Model.displayname</h2>
+        <img class="detail_avatar" src="@Model.photoPath" />
+    </div>
+    <div id="detail_table_container">
+        <table class="detail_table">
+            <tbody>
+                <tr>
+                    <td>Email</td>
+                    <td>@Html.DisplayFor(p => Model.Email)</td>
+                </tr>
+                @if (!string.IsNullOrWhiteSpace(Model.title))
+                {
+                    <tr>
+                        <td>Title</td>
+                        <td>@Model.title</td>
+                    </tr>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.favoritesport))
+                {
+                    <tr>
+                        <td>Favorite Sport</td>
+                        <td>@Model.favoritesport</td>
+                    </tr>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.FavoriteFoods))
+                {
+                    <tr>
+                        <td>Favorite Food</td>
+                        <td>@Model.FavoriteFoods</td>
+                    </tr>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.Interests))
+                {
+                    <tr>
+                        <td>Interests</td>
+                        <td>@Model.Interests</td>
+                    </tr>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.Phone))
+                {
+                    <tr>
+                        <td>Phone</td>
+                        <td>@Model.Phone</td>
+                    </tr>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.PersonalExperiences))
+                {
+                    <tr>
+                        <td>Personal Experience</td>
+                        <td>@Html.DisplayFor(p => Model.PersonalExperiences)</td>
+                    </tr>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.WorkedCompanies))
+                {
+                    <tr>
+                        <td>Worked Companies</td>
+                        <td>@Html.DisplayFor(p => Model.WorkedCompanies)</td>
+                    </tr>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.ParticipatedProjects))
+                {
+                    <tr>
+                        <td>Participated Projects</td>
+                        <td>@Html.DisplayFor(p => Model.ParticipatedProjects)</td>
+                    </tr>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.CooperatedMSEmployees))
+                {
+                    <tr>
+                        <td>Cooperated Microsoft Employee</td>
+                        <td>@Html.DisplayFor(p => Model.CooperatedMSEmployees)</td>
+                    </tr>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.Hornors))
+                {
+                    <tr>
+                        <td>Hornors</td>
+                        <td>@Html.DisplayFor(p => Model.Hornors)</td>
+                    </tr>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.Comment))
+                {
+                    <tr>
+                        <td>Comment</td>
+                        <td>@Html.DisplayFor(p => Model.Comment)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="detail_info_option">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    </div>
+</div>

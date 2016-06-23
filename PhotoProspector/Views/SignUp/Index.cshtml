@@ -67,6 +67,8 @@
                 <p id="invitation_code_note">*Invitation Code is used for signing up for qualified user. Please use your <b>Microsoft email account</b> to retrieve.</p>
             </fieldset>
 
+            @Html.HiddenFor(model => model.IsCustomer);
+
             <button type="submit" id="signup_buton" class="signup">Sign Up</button>
             @Html.ActionLink("I want to delete my existing profile.", "DeleteUser", "SignUp")
         }

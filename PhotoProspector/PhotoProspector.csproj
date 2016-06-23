@@ -238,6 +238,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\CustomerSignUpController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\OneDriveSearchController.cs" />
     <Compile Include="Controllers\ScanController.cs" />
@@ -269,6 +270,7 @@
     <Compile Include="Validations\EqualValueAttribute.cs" />
     <Compile Include="Validations\InvidationCodeMatchEmailAttribute.cs" />
     <Compile Include="Models\InvitationCodeStatus.cs" />
+    <Compile Include="ViewModels\CustomerSignUpViewModel.cs" />
     <Compile Include="ViewModels\DeleteUserViewModel.cs" />
     <Compile Include="ViewModels\ImageFileViewModel.cs" />
     <Compile Include="ViewModels\PersonListViewModel.cs" />
@@ -298,6 +300,7 @@
     <Content Include="Content\Images\onedrive_search_menu_icon.png" />
     <Content Include="Content\Images\search_menu_icon.png" />
     <Content Include="Content\Images\signup_icon.png" />
+    <Content Include="Content\Images\sign_up_cutsomer_menu_icon.png" />
     <Content Include="Content\Images\sign_up_menu_icon.png" />
     <Content Include="Content\Images\test.jpg" />
     <Content Include="Content\Images\test_img_1.png" />
@@ -309,6 +312,7 @@
     <Content Include="Content\site.scan.button.css" />
     <Content Include="Content\site.scan.css" />
     <Content Include="Content\site.scan.result.css" />
+    <Content Include="Content\site.scan.result.detail.css" />
     <Content Include="Content\site.scan.result.table.css" />
     <Content Include="Content\site.search.css" />
     <Content Include="Content\site.search.result.css" />
@@ -375,6 +379,7 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\site.onedrive.search.js" />
     <Content Include="Scripts\site.scan.js" />
+    <Content Include="Scripts\site.scan.result.detail.js" />
     <Content Include="Scripts\site.scan.result.js" />
     <Content Include="Scripts\site.search.js" />
     <Content Include="Scripts\site.search.result.js" />
@@ -406,6 +411,8 @@
     <Content Include="Views\Search\SearchResultByAlias.cshtml" />
     <Content Include="Views\OneDriveSearch\Index.cshtml" />
     <Content Include="Views\OneDriveSearch\ReadyToSearch.cshtml" />
+    <Content Include="Views\CustomerSignUp\Index.cshtml" />
+    <Content Include="Views\Scan\_CustomerDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

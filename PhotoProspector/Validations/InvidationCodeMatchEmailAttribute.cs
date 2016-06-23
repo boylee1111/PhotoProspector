@@ -25,6 +25,10 @@ namespace PhotoProspector.Validations
                 {
                     emailAddress = new MailAddress(((DeleteUserViewModel)viewModel).MSEmail);
                 }
+                else if (viewModel is CustomerSignUpViewModel)
+                {
+                    emailAddress = new MailAddress(((CustomerSignUpViewModel)viewModel).MSEmail);
+                }
             }
             catch
             {

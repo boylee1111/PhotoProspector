@@ -10,6 +10,11 @@
     padding-top: 40px;
 }
 
+.modal-content {
+    width: 600px !important;
+    margin: 30px auto !important;
+}
+
 @media screen and (max-device-width: 640px) {
     #scan_result_img {
         max-width: 280px !important;

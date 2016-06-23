@@ -1,0 +1,112 @@
+﻿@model PhotoProspector.ViewModels.CustomerSignUpViewModel
+@{
+    ViewBag.Title = "Customer Sign Up";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Scripts.Render("~/bundles/signup")
+@Styles.Render("~/Content/profile")
+
+<div class="user_container">
+    <h1 id="signup_title">Sign Customer Up!</h1>
+
+    <div>
+        @{if (Model.Status == PhotoProspector.ViewModels.CustomerSignUpViewModel.SignUpStatus.SignUpSucceed)
+            {
+                <p class="user_message success_message">Congratulation! You've signed up, click @Html.ActionLink("here", "Index", "Upload") back.</p>
+            }
+            else if (Model.Status == PhotoProspector.ViewModels.CustomerSignUpViewModel.SignUpStatus.SignUpFailed)
+            {
+                <p class="user_message failure_message">@Model.ErrorMessage</p>
+            }
+        }
+    </div>
+
+    <div id="signup_form_container">
+        @using (Html.BeginForm("Index", "CustomerSignUp", FormMethod.Post, new { id = "sign_up_form", enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend><span class="number signup_legend">1</span>Basic Info*</legend>
+                @Html.LabelFor(model => model.MSEmail)
+                @Html.EditorFor(model => model.MSEmail)
+                <button id="get_invitation_code_button" class="get_code_btn sign_up_page_btn" type="button">Get Code</button>
+
+                @Html.LabelFor(model => model.Email)
+                @Html.EditorFor(model => model.Email)
+
+                @Html.LabelFor(model => model.displayname, "Customer Name")
+                @Html.EditorFor(model => model.displayname)
+
+                @Html.LabelFor(model => model.photoPath)
+                <div id="avatar_upload_editor">
+                    <img id="avatar_preview_img" src="~/Content/Images/avatar.png" />
+                    @Html.EditorFor(model => model.photoPath)
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend><span class="number signup_legend">2</span>Basic Profile (Optional)</legend>
+                @Html.LabelFor(model => model.title)
+                @Html.EditorFor(model => model.title)
+
+                @Html.LabelFor(model => model.favoritesport)
+                @Html.EditorFor(model => model.favoritesport)
+
+                @Html.LabelFor(model => model.FavoriteFoods)
+                @Html.EditorFor(model => model.FavoriteFoods)
+
+                @Html.LabelFor(model => model.Interests)
+                @Html.EditorFor(model => model.Interests)
+
+                @Html.LabelFor(model => model.Phone)
+                @Html.EditorFor(model => model.Phone)
+            </fieldset>
+
+            <fieldset>
+                <legend><span class="number signup_legend">3</span>Invitation*</legend>
+                @Html.LabelFor(model => model.SignUpCode)
+                @Html.EditorFor(model => model.SignUpCode)
+
+                @Html.ValidationMessageFor(model => model.SignUpCode)
+
+                <p id="invitation_code_note">*Invitation Code is used for giving signing up permission for qualified user. Please use your <b>Microsoft email account</b> to retrieve.</p>
+            </fieldset>
+
+            <fieldset>
+                <legend><span class="number signup_legend">4</span>Experience (Optional)</legend>
+                @Html.LabelFor(model => model.PersonalExperiences)
+                @Html.EditorFor(model => model.PersonalExperiences)
+
+                @Html.LabelFor(model => model.WorkedCompanies)
+                @Html.EditorFor(model => model.WorkedCompanies)
+            </fieldset>
+
+            <fieldset>
+                <legend><span class="number signup_legend">5</span>Project Information (Optional)</legend>
+                @Html.LabelFor(model => model.ParticipatedProjects)
+                @Html.EditorFor(model => model.ParticipatedProjects)
+
+                @Html.LabelFor(model => model.CooperatedMSEmployees)
+                @Html.EditorFor(model => model.CooperatedMSEmployees)
+            </fieldset>
+
+            <fieldset>
+                <legend><span class="number signup_legend">6</span>Miscellaneous (Optional)</legend>
+                @Html.LabelFor(model => model.Hornors)
+                @Html.EditorFor(model => model.Hornors)
+
+                @Html.LabelFor(model => model.Comment)
+                @Html.EditorFor(model => model.Comment)
+            </fieldset>
+
+            @Html.HiddenFor(model => model.IsCustomer);
+
+            <button type="submit" id="signup_buton" class="signup">Sign Up</button>
+        }
+    </div>
+</div>
+
+
+

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 using System.Web.Mvc;
 using PhotoProspector.Helpers;
 using PhotoProspector.Models;
@@ -123,13 +125,23 @@ namespace PhotoProspector.Controllers
                 DataSet myds = MergeDataSet(dsarray);
                 imageService.DrawImg(filepath, drawfilepath, intarray, names, facenum);
 
-                personlist.Persons = userService.GetPersonListByDataSet(myds);
+                var allDetectedPeople = userService.GetPersonListByDataSet(myds);
+                personlist.Persons = allDetectedPeople.Where(p => p.IsCustomer == false).ToList();
+                personlist.Customers = allDetectedPeople.Where(p => p.IsCustomer == true).ToList();
                 personlist.ImageURL = "./images/" + drawfilename;
             }
 
             progress = 100f;
 
             return PartialView(personlist);
+        }
+
+        [HttpGet]
+        public ActionResult CustomerDetail(string email)
+        {
+            var person = fakeViewModel().Customers[0];
+
+            return PartialView("_CustomerDetail", person);
         }
 
         [HttpPost]
@@ -143,13 +155,17 @@ namespace PhotoProspector.Controllers
             var personListViewModel = new PersonListViewModel();
 
             var person1 = new Person();
-            person1.displayname = "Dwarf One Dwarf One Dwarf One Dwarf One Dwarf One Dwarf One Dwarf One Dwarf One Dwarf One Dwarf One Dwarf One";
+            person1.displayname = "Dwarf One";
             person1.alias = "one";
             person1.title = "Athelete";
             person1.specialty = "Strength";
             person1.team = "Team 1";
             person1.favoritesport = "Weightlifting";
             person1.photoPath = "./Content/Images/test_img_1.png";
+            person1.IsCustomer = true;
+            person1.Email = "one@contoso.com";
+            person1.PersonalExperiences = "Hornored as best DJ in 2015.\n\rGraduate from Master of Computer Science in Stanford University in 2014\n\rPersonal experience of a human being is the moment-to-moment experience and sensory awareness of internal and external events or a sum of experiences forming an empirical unity such as a period of life";
+            person1.Comment = "Hornored as best DJ in 2015.\n\rGraduate from Master of Computer Science in Stanford University in 2014\n\rPersonal experience of a human being is the moment-to-moment experience and sensory awareness of internal and external events or a sum of experiences forming an empirical unity such as a period of life";
             var person2 = new Person();
             person2.displayname = "Dwarf Two";
             person2.alias = "two";
@@ -158,6 +174,7 @@ namespace PhotoProspector.Controllers
             person2.team = "Team 2";
             person2.favoritesport = "Hao Change Hao Change Hao Change Hao Change Hao Change Hao Change Hao Change Hao Change Hao Change Hao Change";
             person2.photoPath = "./Content/Images/test_img_2.png";
+            person2.Email = "two@contoso.com";
             var person3 = new Person();
             person3.displayname = "Dwarf Three";
             person3.alias = "three";
@@ -166,15 +183,19 @@ namespace PhotoProspector.Controllers
             person3.team = "Team 3";
             person3.favoritesport = "";
             person3.photoPath = "./Content/Images/test_img_3.png";
+            person3.Email = "three@contoso.com";
 
-            personListViewModel.Persons.Add(person1);
-            personListViewModel.Persons.Add(person2);
-            personListViewModel.Persons.Add(person3);
+            var allDetctedPeople = new List<Person>();
+            allDetctedPeople.Add(person1);
+            allDetctedPeople.Add(person2);
+            allDetctedPeople.Add(person3);
+
+            personListViewModel.Persons = allDetctedPeople.Where(p => p.IsCustomer == false).ToList();
+            personListViewModel.Customers = allDetctedPeople.Where(p => p.IsCustomer == true).ToList();
 
             personListViewModel.ImageURL = "./Content/Images/test.jpg";
 
             return personListViewModel;
-
         }
 
         public DataSet MergeDataSet(DataSet[] dsarray)

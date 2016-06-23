@@ -14,12 +14,16 @@
         top: 70px;
     }
 
-    .menu_opener:checked ~ .link_menu_search {
+    .menu_opener:checked ~ .link_menu_signup_customer {
         top: 130px; /* 70px + 60px */
     }
 
-    .menu_opener:checked ~ .link_menu_onedrive_search {
+    .menu_opener:checked ~ .link_menu_search {
         top: 190px; /* 70px + 60px * 2 */
+    }
+
+    .menu_opener:checked ~ .link_menu_onedrive_search {
+        top: 250px; /* 70px + 60px * 3 */
     }
 
     .menu_opener:checked ~ .barre_hamburger {
@@ -128,6 +132,10 @@
     background: url("/Content/Images/sign_up_menu_icon.png") #81c41d no-repeat center center;
 }
 
+.link_menu_signup_customer {
+    background: url("/Content/Images/sign_up_cutsomer_menu_icon.png") #81c41d no-repeat center center;
+}
+
 .link_menu_search {
     background: url("/Content/Images/search_menu_icon.png") #81c41d no-repeat center center;
 }
@@ -147,12 +155,16 @@
         top: 40px;
     }
 
-    .menu_opener:checked ~ .link_menu_search {
+    .menu_opener:checked ~ .link_menu_signup_customer {
         top: 70px; /* 40px + 30px */
     }
 
-    .menu_opener:checked ~ .link_menu_onedrive_search {
+    .menu_opener:checked ~ .link_menu_search {
         top: 100px; /* 40px + 30px * 2 */
+    }
+
+    .menu_opener:checked ~ .link_menu_onedrive_search {
+        top: 130px; /* 40px + 30px * 3 */
     }
 
     .menu_opener:checked ~ .barre_hamburger {

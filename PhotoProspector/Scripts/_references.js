@@ -18,6 +18,7 @@
 /// <reference path="site.js" />
 /// <reference path="site.onedrive.search.js" />
 /// <reference path="site.scan.js" />
+/// <reference path="site.scan.result.detail.js" />
 /// <reference path="site.scan.result.js" />
 /// <reference path="site.search.js" />
 /// <reference path="site.search.result.js" />

@@ -2,39 +2,43 @@
     visibility: hidden;
 }
 
-#person_info_table {
+.table_header_title {
+    text-align:center;
+}
+
+.info_table {
     margin: 0 auto;
     font-size: 1.6em;
     margin-top: 30px;
     margin-bottom: 15px;
 }
 
-    #person_info_table thead {
+    .info_table thead {
         background: #c9dff0;
     }
 
-        #person_info_table thead tr th {
+        .info_table thead tr th {
             font-weight: bold;
             padding: 12px 30px;
             padding-left: 42px;
             text-align: center;
         }
 
-            #person_info_table thead tr th span {
+            .info_table thead tr th span {
                 padding-right: 20px;
                 background-repeat: no-repeat;
                 background-position: 100% 100%;
             }
 
-            #person_info_table thead tr th.headerSortUp, #person_info_table thead tr th.headerSortDown {
+            .info_table thead tr th.headerSortUp, .info_table thead tr th.headerSortDown {
                 background: #acc8dd;
             }
 
-    #person_info_table tbody tr {
+    .info_table tbody tr {
         color: #555;
     }
 
-        #person_info_table tbody tr td {
+        .info_table tbody tr td {
             text-align: center;
             padding: 15px 10px;
             max-width: 300px;
@@ -43,15 +47,15 @@
             overflow: hidden;
         }
 
-            #person_info_table tbody tr td.lalign {
+            .info_table tbody tr td.lalign {
                 text-align: left;
             }
 
-            #person_info_table tbody tr td.no_wrap {
+            .info_table tbody tr td.no_wrap {
                 white-space: normal;
             }
 
-            #person_info_table tbody tr td img.avatar {
+            .info_table tbody tr td img.avatar {
                 height: 50px;
                 width: 50px;
                 -webkit-border-radius: 50%;
@@ -64,7 +68,7 @@
                 -o-transition: transform .2s ease-in-out;
             }
 
-                #person_info_table tbody tr td img.avatar:hover {
+                .info_table tbody tr td img.avatar:hover {
                     transform: scale(1.2);
                     -moz-transform: scale(1.2);
                     -webkit-transform: scale(1.2);
@@ -73,26 +77,26 @@
                 }
 
 @media screen and (max-device-width: 640px) {
-    #person_info_table {
+    .info_table {
         width: 80% !important;
         font-size: 8px;
         margin-top: 15px;
     }
 
-        #person_info_table thead tr th {
+        .info_table thead tr th {
             padding: 2px 4px;
         }
 
-            #person_info_table thead tr th span {
+            .info_table thead tr th span {
                 padding: 3px;
             }
 
-        #person_info_table tbody tr td {
+        .info_table tbody tr td {
             padding: 4px 3px;
             max-width: 100px;
         }
 
-            #person_info_table tbody tr td img.avatar {
+            .info_table tbody tr td img.avatar {
                 height: 20px;
                 width: 20px;
             }

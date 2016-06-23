@@ -8,6 +8,12 @@ body {
     margin-top: 35px;
 }
 
+#signup_form_container {
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #avatar_upload_editor {
     max-width: 350px;
     height: 163px;
@@ -94,6 +100,10 @@ select {
     margin-bottom: 30px;
     max-width: 100%;
 }
+
+    textarea.text-box.multi-line {
+        height: 120px;
+    }
 
 input[type="radio"],
 input[type="checkbox"] {
@@ -193,12 +203,6 @@ label {
         background-color: #F44336;
     }
 
-@media screen and (min-width: 480px) {
-    form {
-        max-width: 100%;
-    }
-}
-
 .input-validation-error {
     background: url("Images/invalid.png") no-repeat 98% center !important;
     box-shadow: 0 0 5px #d45252 !important;
@@ -252,6 +256,13 @@ label {
         background-color: #3ac162;
     }
 
-     .get_code_btn.delete_page_btn {
+    .get_code_btn.delete_page_btn {
         background-color: #F44336;
     }
+
+
+@media screen and (min-width: 480px) {
+    form {
+        max-width: 100%;
+    }
+}

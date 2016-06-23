@@ -26,7 +26,8 @@
         var firstPerson = Model.Persons.FirstOrDefault();
         if (firstPerson != null)
         {
-            <table id="person_info_table">
+            <h2 class="table_header_title">Microsoft Employees</h2>
+            <table id="person_info_table" class="info_table">
                 <thead>
                     <tr>
                         <th>@Html.DisplayNameFor(p => firstPerson.alias)</th>
@@ -55,4 +56,45 @@
             </table>
         }
     }
+    @{
+        var firstCustomer = Model.Customers.FirstOrDefault();
+        if (firstCustomer != null)
+        {
+            <h2 class="table_header_title">Customers</h2>
+            <table id="customer_info_table" class="info_table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(p => firstCustomer.displayname)</th>
+                        <th>@Html.DisplayNameFor(p => firstCustomer.photoPath)</th>
+                        <th>@Html.DisplayNameFor(p => firstCustomer.Email)</th>
+                        <th>@Html.DisplayNameFor(p => firstCustomer.favoritesport)</th>
+                        <th>@Html.DisplayNameFor(p => firstCustomer.FavoriteFoods)</th>
+                        <th>@Html.DisplayNameFor(p => firstCustomer.Interests)</th>
+                        <th>@Html.DisplayNameFor(p => firstCustomer.Phone)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var person in Model.Customers)
+                    {
+                        <tr>
+                            <td class="lalign">@Html.DisplayFor(p => person.displayname)</td>
+                            <td class="td_photo"><img class="avatar" src="@person.photoPath" /></td>
+                            <td class="no_wrap">@Html.DisplayFor(p => person.Email)</td>
+                            <td class="no_wrap">@Html.DisplayFor(p => person.favoritesport)</td>
+                            <td class="no_wrap">@Html.DisplayFor(p => person.FavoriteFoods)</td>
+                            <td class="no_wrap">@Html.DisplayFor(p => person.Interests)</td>
+                            <td class="no_wrap">@Html.DisplayFor(p => person.Phone)</td>
+                            <td class="no-wrap">@Html.ActionLink("Detail", "CustomerDetail", "Scan", new { email = person.Email }, new { @class = "modal-link btn btn-success" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
+</div>
+<div id="modal-container" class="modal fade"
+     tabindex="-1" role="dialog">
+    <div class="modal-content">
+    </div>
 </div>

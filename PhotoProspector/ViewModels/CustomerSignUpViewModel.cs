@@ -7,14 +7,14 @@ using PhotoProspector.Validations;
 
 namespace PhotoProspector.ViewModels
 {
-    public class SignUpViewModel : Person
+    public class CustomerSignUpViewModel : Person
     {
         [Required]
         public new HttpPostedFileBase photoPath { get; set; }
 
         [Required]
         [EmailWithDomain("microsoft.com")]
-        [DisplayName("Email")]
+        [DisplayName("Microsoft Email")]
         public string MSEmail
         {
             get
@@ -27,25 +27,12 @@ namespace PhotoProspector.ViewModels
                 {
                     var mail = new MailAddress(value);
                     alias = mail.User;
-                    Email = value;
                 }
                 catch
                 {
                     alias = "";
                 }
             }
-        }
-
-        public SignUpViewModel() : this(SignUpStatus.Initial, "")
-        {
-            IsCustomer = false;
-        }
-
-        public SignUpViewModel(SignUpStatus status = SignUpStatus.Initial, string errorMessage = "")
-        {
-            Status = status;
-            ErrorMessage = errorMessage;
-            base.photoPath = title = specialty = team = favoritesport = "";
         }
 
         [DefaultValue("")]
@@ -63,6 +50,18 @@ namespace PhotoProspector.ViewModels
             Initial = 1,
             SignUpSucceed = 2,
             SignUpFailed = 3
+        }
+
+        public CustomerSignUpViewModel() : this(SignUpStatus.Initial, "")
+        {
+            IsCustomer = true;
+        }
+
+        public CustomerSignUpViewModel(SignUpStatus status = SignUpStatus.Initial, string errorMessage = "")
+        {
+            Status = status;
+            ErrorMessage = errorMessage;
+            base.photoPath = title = specialty = team = favoritesport = "";
         }
     }
 }
