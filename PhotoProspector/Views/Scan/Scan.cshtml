@@ -85,7 +85,7 @@
                             <td class="no_wrap">@Html.DisplayFor(p => person.FavoriteFoods)</td>
                             <td class="no_wrap">@Html.DisplayFor(p => person.Interests)</td>
                             <td class="no_wrap">@Html.DisplayFor(p => person.Phone)</td>
-                            <td class="no-wrap">@Html.ActionLink("Detail", "CustomerDetail", "Scan", new { email = person.Email }, new { @class = "modal-link btn btn-success" })</td>
+                            <td class="no-wrap">@Html.ActionLink("Detail", "CustomerDetail", "Scan", new { alias = person.alias }, new { @class = "modal-link btn btn-success" })</td>
                         </tr>
                     }
                 </tbody>

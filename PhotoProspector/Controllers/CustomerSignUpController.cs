@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using PhotoProspector.Services;
 using PhotoProspector.ViewModels;
+using System.Net.Mail;
 
 namespace PhotoProspector.Controllers
 {
@@ -39,6 +40,12 @@ namespace PhotoProspector.Controllers
             {
                 if (ModelState.IsValid)
                 {
+
+                    customerSignUpViewModel.alias = new MailAddress(customerSignUpViewModel.Email).User;
+
+
+                     
+
                     var filename = Path.GetFileName(customerSignUpViewModel.photoPath.FileName);
                     var tempFolder = Server.MapPath("~/TempImg/");
                     if (!Directory.Exists(tempFolder))

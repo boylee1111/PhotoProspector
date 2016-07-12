@@ -65,10 +65,47 @@ namespace PhotoProspector.Services
             {
                 rperson.specialty = "";
             }
-            if (rperson.favoritesport == null)
+            if (rperson.Email == null)
             {
-                rperson.favoritesport = "";
+                rperson.Email = "";
             }
+            if (rperson.FavoriteFoods == null)
+            {
+                rperson.FavoriteFoods = "";
+            }
+            if (rperson.Interests == null)
+            {
+                rperson.Interests = "";
+            }
+            if (rperson.Phone == null)
+            {
+                rperson.Phone = "";
+            }
+            if (rperson.PersonalExperiences == null)
+            {
+                rperson.PersonalExperiences = "";
+            }
+            if (rperson.WorkedCompanies == null)
+            {
+                rperson.WorkedCompanies = "";
+            }
+            if (rperson.ParticipatedProjects == null)
+            {
+                rperson.ParticipatedProjects = "";
+            }
+            if (rperson.CooperatedMSEmployees == null)
+            {
+                rperson.CooperatedMSEmployees = "";
+            }
+            if (rperson.Hornors == null)
+            {
+                rperson.Hornors = "";
+            }
+            if (rperson.Comment == null)
+            {
+                rperson.Comment = "";
+            }
+
 
             this.imageService.CutImg(imagepath, cutpath, 800, 800, "HW");
 
@@ -86,7 +123,7 @@ namespace PhotoProspector.Services
             if (myDs.Tables[0].Rows.Count > 0)
             {
 
-                SqlCommand delete = new SqlCommand("Delete from FaceWebsiteTable Where Alias = '" + rperson.alias + "'", myConn);
+                SqlCommand delete = new SqlCommand("Delete from FaceWebsiteTable Where alias = '" + rperson.alias + "'", myConn);
 
 
                 try
@@ -104,7 +141,7 @@ namespace PhotoProspector.Services
             }
             else
             {
-                SqlCommand insert = new SqlCommand("insert into FaceWebsiteTable(displayname, alias, team,title,specialty,favoritesport,photoPath) values(@displayname, @alias, @team, @title, @specialty, @favoritesport, @photoPath)", myConn);
+                SqlCommand insert = new SqlCommand("insert into FaceWebsiteTable(displayname, alias, team,title,specialty,favoritesport,photoPath,Email,FavoriteFoods,Interests,Phone,PersonalExperiences,WorkedCompanies,ParticipatedProjects,CooperatedMSEmployees,Hornors,Comment,IsCustomer) values(@displayname, @alias, @team, @title, @specialty, @favoritesport, @photoPath,@Email,@FavoriteFoods,@Interests,@Phone,@PersonalExperiences,@WorkedCompanies,@ParticipatedProjects,@CooperatedMSEmployees,@Hornors,@Comment,@IsCustomer)", myConn);
                 insert.Parameters.AddWithValue("@displayname", rperson.displayname);
                 insert.Parameters.AddWithValue("@alias", rperson.alias);
                 insert.Parameters.AddWithValue("@team", rperson.team);
@@ -112,6 +149,17 @@ namespace PhotoProspector.Services
                 insert.Parameters.AddWithValue("@specialty", rperson.specialty);
                 insert.Parameters.AddWithValue("@favoritesport", rperson.favoritesport);
                 insert.Parameters.AddWithValue("@photoPath", rperson.photoPath);
+                insert.Parameters.AddWithValue("@Email", rperson.Email);
+                insert.Parameters.AddWithValue("@FavoriteFoods", rperson.FavoriteFoods);
+                insert.Parameters.AddWithValue("@Interests", rperson.Interests);
+                insert.Parameters.AddWithValue("@Phone", rperson.Phone);
+                insert.Parameters.AddWithValue("@PersonalExperiences", rperson.PersonalExperiences);
+                insert.Parameters.AddWithValue("@WorkedCompanies", rperson.WorkedCompanies);
+                insert.Parameters.AddWithValue("@ParticipatedProjects", rperson.ParticipatedProjects);
+                insert.Parameters.AddWithValue("@CooperatedMSEmployees", rperson.CooperatedMSEmployees);
+                insert.Parameters.AddWithValue("@Hornors", rperson.Hornors);
+                insert.Parameters.AddWithValue("@Comment", rperson.Comment);
+                insert.Parameters.AddWithValue("@IsCustomer", rperson.IsCustomer);
 
                 try
                 {
@@ -155,8 +203,8 @@ namespace PhotoProspector.Services
             SqlConnection myConn = new SqlConnection(myStr);
             myConn.Open();
 
-            SqlCommand delete = new SqlCommand("Delete from FaceWebsiteTable Where Alias = '" + alias + "'", myConn);
-            SqlCommand deletecode = new SqlCommand("Delete from InvitationCode Where Alias = '" + alias + "'", myConn);
+            SqlCommand delete = new SqlCommand("Delete from FaceWebsiteTable Where alias = '" + alias + "'", myConn);
+            SqlCommand deletecode = new SqlCommand("Delete from InvitationCode Where alias = '" + alias + "'", myConn);
 
             try
             {
@@ -184,7 +232,7 @@ namespace PhotoProspector.Services
             SqlConnection myConn = new SqlConnection(myStr);
             myConn.Open();
 
-            string query = "select * from InvitationCode WHERE alias='" + alias + "'";
+            string query = "select * from InvitationCode WHERE Alias='" + alias + "'";
 
             DataSet myDs = new DataSet();
             SqlDataAdapter myDa = new SqlDataAdapter(query, myConn);
@@ -318,9 +366,57 @@ namespace PhotoProspector.Services
                     {
                         person.favoritesport = mDr[mDc].ToString();
                     }
-                    if (mDc.ColumnName == "photoPath")
+                    if (mDc.ColumnName == "PhotoPath")
                     {
                         person.photoPath = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "Email")
+                    {
+                        person.Email = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "FavoriteFoods")
+                    {
+                        person.FavoriteFoods = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "Interests")
+                    {
+                        person.Interests = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "Phone")
+                    {
+                        person.Phone = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "PersonalExperiences")
+                    {
+                        person.PersonalExperiences = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "WorkedCompanies")
+                    {
+                        person.WorkedCompanies = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "ParticipatedProjects")
+                    {
+                        person.ParticipatedProjects = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "CooperatedMSEmployees")
+                    {
+                        person.CooperatedMSEmployees = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "Hornors")
+                    {
+                        person.Hornors = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "Comment")
+                    {
+                        person.Comment = mDr[mDc].ToString();
+                    }
+                    if (mDc.ColumnName == "IsCustomer")
+                    {
+
+                        string temp = mDr[mDc].ToString();
+                        person.IsCustomer = Convert.ToBoolean(temp);
+
+
                     }
 
                 }

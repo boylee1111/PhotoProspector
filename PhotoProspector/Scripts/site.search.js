@@ -70,26 +70,28 @@ function uploadAndSearch() {
     if (window.FormData !== undefined) {
         var formData = new FormData();
         for (var i = 0; i < uploadImagesInput.get(0).files.length; ++i) {
-            formData.append(uploadImagesInput.get(0).files[i].name, uploadImagesInput.get(0).files[i]);
+            //formData.append(uploadImagesInput.get(0).files[i].name, uploadImagesInput.get(0).files[i]);
         }
 
-        $.ajax({
-            type: 'POST',
-            url: webroot + 'Search/UploadBatchSearchByAlias?alias=' + alias,
-            contentType: false,
-            processData: false,
-            data: formData,
-            success: function (data) {
-                searchContainer.fadeOut(function () { // result transition animation
-                    searchContainer.html(data);
-                    searchContainer.fadeIn();
-                });
-            },
-            error: function (xhr, textStatus, errorThrown) {
-                //alert(xhr.responseText);
-                alert('Server is busy now, please try again later.”');
-            }
-        });
+        setTimeout(function () {
+            $.ajax({
+                type: 'POST',
+                url: webroot + 'Search/UploadBatchSearchByAlias?alias=' + alias,
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: function (data) {
+                    searchContainer.fadeOut(function () { // result transition animation
+                        searchContainer.html(data);
+                        searchContainer.fadeIn();
+                    });
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    //alert(xhr.responseText);
+                    alert('Server is busy now, please try again later.”');
+                }
+            });
+        }, 3000);
     } else {
         alert("This browser doesn't support HTML5 file uploads!");
     }

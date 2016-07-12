@@ -63,7 +63,8 @@ namespace PhotoProspector.Services
                 }
             }
 
-            string alias = name.Split('.')[0];
+
+            string alias = System.IO.Path.GetFileNameWithoutExtension(name);
 
             return alias;
         }

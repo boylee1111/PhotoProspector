@@ -20,6 +20,8 @@ namespace PhotoProspector.Controllers
         private readonly IScanningService scanningService;
         private readonly ITrainingService trainingService;
 
+        readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public ScanController(
             IUserService userService,
             IImageService imageService,
@@ -121,14 +123,36 @@ namespace PhotoProspector.Controllers
                 progress = 80f;
 
                 DataSet[] dsarray = userService.GetDataSetsByAlias(alias);
+                logger.Info("dsarray get");
                 string[] names = userService.GetDisplayNameByDsarray(dsarray);
+                logger.Info("names get");
                 DataSet myds = MergeDataSet(dsarray);
+                logger.Info("merge finished");
                 imageService.DrawImg(filepath, drawfilepath, intarray, names, facenum);
+                logger.Info("draw finished");
 
                 var allDetectedPeople = userService.GetPersonListByDataSet(myds);
-                personlist.Persons = allDetectedPeople.Where(p => p.IsCustomer == false).ToList();
-                personlist.Customers = allDetectedPeople.Where(p => p.IsCustomer == true).ToList();
+                try
+                {
+                    personlist.Persons = allDetectedPeople.Where(p => p.IsCustomer == false).ToList();
+                    logger.Info("person constructed");
+                }
+                catch
+                {
+                    personlist.Persons = new List<Person>();
+                }
+                try
+                {
+                    personlist.Customers = allDetectedPeople.Where(p => p.IsCustomer == true).ToList();
+                    logger.Info("customer constructed");
+                }
+                catch
+                {
+                    personlist.Customers = new List<Person>();
+                }
+
                 personlist.ImageURL = "./images/" + drawfilename;
+                logger.Info("image set");
             }
 
             progress = 100f;
@@ -137,9 +161,20 @@ namespace PhotoProspector.Controllers
         }
 
         [HttpGet]
-        public ActionResult CustomerDetail(string email)
+        public ActionResult CustomerDetail(string alias)
         {
-            var person = fakeViewModel().Customers[0];
+
+            string[] aliasarray = { alias };
+
+            DataSet[] dsarray = userService.GetDataSetsByAlias(aliasarray);
+
+            DataSet myds = MergeDataSet(dsarray);
+
+
+            var customerperson = userService.GetPersonListByDataSet(myds);
+
+
+            var person = customerperson.FirstOrDefault();
 
             return PartialView("_CustomerDetail", person);
         }
@@ -162,7 +197,7 @@ namespace PhotoProspector.Controllers
             person1.team = "Team 1";
             person1.favoritesport = "Weightlifting";
             person1.photoPath = "./Content/Images/test_img_1.png";
-            person1.IsCustomer = true;
+            person1.IsCustomer = false;
             person1.Email = "one@contoso.com";
             person1.PersonalExperiences = "Hornored as best DJ in 2015.\n\rGraduate from Master of Computer Science in Stanford University in 2014\n\rPersonal experience of a human being is the moment-to-moment experience and sensory awareness of internal and external events or a sum of experiences forming an empirical unity such as a period of life";
             person1.Comment = "Hornored as best DJ in 2015.\n\rGraduate from Master of Computer Science in Stanford University in 2014\n\rPersonal experience of a human being is the moment-to-moment experience and sensory awareness of internal and external events or a sum of experiences forming an empirical unity such as a period of life";

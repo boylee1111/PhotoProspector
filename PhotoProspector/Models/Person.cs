@@ -81,6 +81,7 @@ namespace PhotoProspector.Models
 
         public Person()
         {
+
             IsCustomer = false;
         }
     }
