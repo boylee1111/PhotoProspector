@@ -1,0 +1,7 @@
+INFO  2016-06-16 09:53:40,134  5800ms OneDrivePhotoService   ivePersonalAuthUrl - Building URL String start
+INFO  2016-06-16 09:53:40,151  5817ms OneDrivePhotoService   ivePersonalAuthUrl - MSAAppID is: e582339a-c551-416b-835e-790ed6d2131b
+INFO  2016-06-16 09:53:40,151  5817ms OneDrivePhotoService   ivePersonalAuthUrl - response_type is: code.
+INFO  2016-06-16 09:53:40,151  5817ms OneDrivePhotoService   ivePersonalAuthUrl - redirect_uri is: http://localhost:2000/OneDriveSearch/Redirect
+INFO  2016-06-16 09:53:40,151  5817ms OneDrivePhotoService   ivePersonalAuthUrl - state is: personal
+INFO  2016-06-16 09:53:40,151  5817ms OneDrivePhotoService   ivePersonalAuthUrl - scope is: files.readwrite offline_access
+INFO  2016-06-16 09:53:40,152  5818ms eDriveSearchController SignInPersonal     - urlString is: https://login.live.com/oauth20_authorize.srf?client_id=e582339a-c551-416b-835e-790ed6d2131b&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A2000%2FOneDriveSearch%2FRedirect&state=personal&scope=files.readwrite%20offline_access

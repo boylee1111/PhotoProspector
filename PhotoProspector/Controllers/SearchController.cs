@@ -60,8 +60,9 @@ namespace PhotoProspector.Controllers
                 //        img.Save(fullFileName);
                 //    }
                 //}
+                var fullUploadURL = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, savedDirectoryRootPath);
 
-                var searchResultViewModel = new SearchResultViewModel(alias, savedDirectoryPath, savedDirectoryRootPath);
+                var searchResultViewModel = new SearchResultViewModel(alias, savedDirectoryPath, "/face" +savedDirectoryRootPath);
 
                 return PartialView("SearchResultByAlias", searchResultViewModel);
             }

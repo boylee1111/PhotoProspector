@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using PhotoProspector.App_Start;
+using System.Web.Http;
+using System.Web.Routing;
 
 namespace PhotoProspector
 {
@@ -11,6 +13,7 @@ namespace PhotoProspector
     {
         protected void Application_Start()
         {
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

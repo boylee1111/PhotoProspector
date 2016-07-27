@@ -73,7 +73,6 @@ function eventBinding() {
             }, 200);
         }).fail(function (e) {
             alert('Server is busy now, please try again later.”');
-            window.location.href = webroot;
         });
     });
 
